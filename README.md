@@ -1,2 +1,2 @@
-# EMCMS-front-end-application
-This is an exam marks claim management system which is inspired and developed from the process used in the Adventist University Of Central Africa. This is the front-end application of the EMCMS
+# VSBA - Front-end
+This is a Vehicle Servicing Booking Application that allows user to book slots in a garage that uses the same system and allow them to visit it at the designated period when the booking is approved from the garage side. 
