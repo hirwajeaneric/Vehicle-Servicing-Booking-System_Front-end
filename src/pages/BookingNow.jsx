@@ -7,14 +7,14 @@ const BookingNow = () => {
   return (
     <div>
       <Helmet>
-        <title>Welcome to VSBA.</title>
+        <title>Book a slot now.</title>
         <meta name="description" content="Book a slot with  VSBA."/>
       </Helmet>
       <SimpleTopNavigation>
         <ul>
           <li><NavLink to={'/'}>Home</NavLink></li>
           <li><NavLink to={'/book-now'}>Book now</NavLink></li>
-          <li><NavLink to={'/client/'}>My Account</NavLink></li>
+          <li><NavLink to={'/client'}>My Account</NavLink></li>
         </ul>
       </SimpleTopNavigation>
       <Banner>

@@ -3,9 +3,12 @@ import styled from 'styled-components';
 export const Banner = styled.div`
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    height: 90vh;
 
     @media (max-width: 1080px) {
             

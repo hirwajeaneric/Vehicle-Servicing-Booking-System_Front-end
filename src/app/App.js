@@ -8,7 +8,7 @@ import StartingPage from '../pages';
 import LandingPage from '../pages/LandingPage';
 
 // Admin authentication pages
-import AuthentincationPage from '../pages/auth';
+import AuthenticationPage from '../pages/auth';
 import Signup from '../pages/auth/Signup';
 import Signin from '../pages/auth/Signin';
 import ResetPassword from '../pages/auth/ResetPassword';
@@ -23,11 +23,11 @@ import AdminSettings from '../pages/users/Admin/Settings';
 import AdminBookingDetails from '../pages/users/Admin/BookingDetails';
 
 // Client authentication pages
-import ClientAuthentincationPage from '../pages/auth';
-import ClientSignup from '../pages/auth/Signup';
-import ClientSignin from '../pages/auth/Signin';
-import ClientResetPassword from '../pages/auth/ResetPassword';
-import ClientRequestPasswordReset from '../pages/auth/RequestPasswordReset';
+import ClientAuthenticationPage from '../pages/auth/ClientIndex';
+import ClientSignup from '../pages/auth/ClientSignup';
+import ClientSignin from '../pages/auth/ClientSignin';
+import ClientResetPassword from '../pages/auth/ClientResetPassword';
+import ClientRequestPasswordReset from '../pages/auth/ClientRequestPasswordReset';
 // Client Pages
 import Client from '../pages/users/Client/Index';
 import NewBooking from '../pages/users/Client/NewBooking';
@@ -35,6 +35,7 @@ import ClientBookingDetails from '../pages/users/Client/BookingDetails';
 import ClientHome from '../pages/users/Client/Home';
 import ClientSettings from '../pages/users/Client/Settings';
 import SuccessPage from '../pages/users/Client/SuccessPage';
+import BookingNow from '../pages/BookingNow';
 
 function App() {
   return (
@@ -45,15 +46,15 @@ function App() {
         <Routes>
           <Route path='/' element={<StartingPage />}>
             <Route path='/' element={<LandingPage />} />
-            <Route path='/book-now' element={<ErrorPage />} />
+            <Route path='/book-now' element={<BookingNow />} />
             <Route path='*' element={<ErrorPage />} />
           </Route>
 
           {/* ------------------------------------------------------------------------------------------------------------- */}
           
           {/* Student Pages */}
-          <Route path={'client'} element={localStorage.getItem("cltTkn") ? <Client /> : <Navigate replace to='/client/auth/signin' />} >
-            <Route path='/auth' element={<ClientAuthentincationPage />}>
+          <Route path={'/client'} element={localStorage.getItem("cltTkn") ? <Client /> : <Navigate replace to='/client/auth/signin' />} >
+            <Route path='auth' element={<ClientAuthenticationPage />}>
               <Route path='' element={<ClientSignin />} />
               <Route path='signin' element={<ClientSignin />} />
               <Route path='signup' element={<ClientSignup />} />
@@ -71,7 +72,7 @@ function App() {
           {/* ------------------------------------------------------------------------------------------------------------- */}
 
           {/* Admin Authentication routes */}
-          <Route path='/admin/auth' element={<AuthentincationPage />}>
+          <Route path='/admin/auth' element={<AuthenticationPage />}>
             <Route path='' element={<Signin />} />
             <Route path='signin' element={<Signin />} />
             <Route path='signup' element={<Signup />} />
