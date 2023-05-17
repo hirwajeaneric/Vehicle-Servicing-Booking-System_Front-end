@@ -13,9 +13,8 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 
 const BookingNow = () => {
-  const [bookingFormData, setBookingFormData] = useState({
+  const [bookingFormData, setBookingFormData] = useState({ email:'', fullName: '', phone:'', vehicleType: '', vehicleModel: '', typeOfService: '', serviceDescription: '' });
 
-  });
   const [progress, setProgress] = useState({ value: '', disabled: false});
   const [open, setOpen] = useState(false);
   const [responseMessage, setResponseMessage] = useState({ message: '', severity: ''});
@@ -64,7 +63,7 @@ const BookingNow = () => {
       <NavigationBar />
       <SectionOrPageContainer>
         <h1>Book your slot now.</h1>
-        <BookingForm bookingFormData={bookingFormData} submitForm={submitForm} handleFormInput={handleFormInput} progress={progress}  />
+        <BookingForm bookingFormData={bookingFormData} setBookingFormData={setBookingFormData} submitForm={submitForm} handleFormInput={handleFormInput} progress={progress}  />
       </SectionOrPageContainer>
       
       {/* Response message  */}
