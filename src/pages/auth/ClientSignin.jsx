@@ -20,7 +20,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const ClientSignin = () => {  
+export default function ClientSignin() {  
   // States
   const [showPassword, setShowPassword] = React.useState(false);
   const [formData, setFormData] = useState({ email: '', registrationNumber: 0, password: '' });
@@ -63,8 +63,8 @@ const ClientSignin = () => {
             const { token, ...userInfo } = response.data.user;
             
             setProgress({ value: '', disabled: false });
-            localStorage.setItem('admnInfo', JSON.stringify(userInfo));
-            localStorage.setItem('admnTkn', token);
+            localStorage.setItem('cltInfo', JSON.stringify(userInfo));
+            localStorage.setItem('cltTkn', token);
             window.location.replace('/client/');
           }
         }, 2000); 
@@ -86,7 +86,7 @@ const ClientSignin = () => {
         <meta name="description" content={`Client sign in form.`} /> 
       </Helmet>
       <InnerContainer>
-        <h2 style={{ textAlign: 'center' }}>ADMIN SIGN IN</h2>
+        <h2 style={{ textAlign: 'center' }}>SIGN IN</h2>
         <AuthFormContainer onSubmit={submitForm}>
           <TextField id="filled-basic" sx={{ m: 1, width: '40ch' }}  size='small' label="email" variant="filled" name='email' value={formData.email || ''} onChange={handleChange}/>
           <FormControl variant="filled">
@@ -114,5 +114,3 @@ const ClientSignin = () => {
     </AuthenticationPageContainer>
   )
 }
-
-export default ClientSignin

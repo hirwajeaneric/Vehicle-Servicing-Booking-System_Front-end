@@ -4,7 +4,7 @@ import NavigationBar from '../../../components/sections/NavigationBar';
 
 const Index = () => {
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent:'space-between', position: 'relative' }}>
         <NavigationBar />
         <Outlet />
     </div>

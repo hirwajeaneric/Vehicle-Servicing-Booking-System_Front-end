@@ -7,19 +7,40 @@ export const SectionOrPageContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 90px;
-    background: #ebf0fa;
+    padding: 70px 90px;
 
     @media (max-width: 1080px) {
             
     }
 
     @media (max-width: 768px) {
-        padding: 0 35px;
+        padding: 40px 40px;
     }
 
     @media (max-width: 480px) {
-        padding: 0 15px;
+        padding: 30px 10px;
+    }
+`;
+
+export const BookingFormContainer = styled.div`
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 90px;
+
+    @media (max-width: 1080px) {
+            
+    }
+
+    @media (max-width: 768px) {
+        margin-top: 30px;
+    }
+
+    @media (max-width: 480px) {
+        margin-top: 20px;
     }
 `;
 

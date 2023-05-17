@@ -82,7 +82,7 @@ const ClientSignup = () => {
         <meta name="description" content={`Client sign up form.`} /> 
       </Helmet>
       <InnerContainer>
-        <h2 style={{ textAlign: 'center' }}>ADMIN SIGN UP</h2>
+        <h2 style={{ textAlign: 'center' }}>CREATE AN ACCOUNT</h2>
         <AuthFormContainer onSubmit={submitForm}>
           <TextField id="fullName" sx={{ m: 1, width: '40ch' }}  size='small' label="Full name" variant="filled" name='fullName' value={formData.fullName || ''} onChange={handleChange}/>
           <TextField id="email" sx={{ m: 1, width: '40ch' }}  size='small' label="Email" variant="filled" name='email' value={formData.email || ''} onChange={handleChange}/>
