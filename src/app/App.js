@@ -29,7 +29,6 @@ import ClientResetPassword from '../pages/auth/ClientResetPassword';
 import ClientRequestPasswordReset from '../pages/auth/ClientRequestPasswordReset';
 // Client Pages
 import Client from '../pages/users/Client/Index';
-import NewBooking from '../pages/users/Client/NewBooking';
 import ClientBookingDetails from '../pages/users/Client/BookingDetails';
 import ClientHome from '../pages/users/Client/Home';
 import ClientSettings from '../pages/users/Client/Settings';

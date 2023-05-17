@@ -27,6 +27,7 @@ export default function NavigationBar() {
         }
         {localStorage.getItem('cltTkn') && <li><Link to={"/"} onClick={logout}>Log out</Link></li>}
       </ul>
+      {/* Mobile Menu  */}
     </SimpleTopNavigation>
   )
 }
