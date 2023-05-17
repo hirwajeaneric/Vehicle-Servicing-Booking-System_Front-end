@@ -23,7 +23,6 @@ import AdminSettings from '../pages/users/Admin/Settings';
 import AdminBookingDetails from '../pages/users/Admin/BookingDetails';
 
 // Client authentication pages
-import ClientAuthenticationPage from '../pages/auth/ClientIndex';
 import ClientSignup from '../pages/auth/ClientSignup';
 import ClientSignin from '../pages/auth/ClientSignin';
 import ClientResetPassword from '../pages/auth/ClientResetPassword';
@@ -36,7 +35,6 @@ import ClientHome from '../pages/users/Client/Home';
 import ClientSettings from '../pages/users/Client/Settings';
 import SuccessPage from '../pages/users/Client/SuccessPage';
 import BookingNow from '../pages/BookingNow';
-import ClientSignupPage from '../pages/auth/ClientSignUpPage';
 
 function App() {
   return (
@@ -63,7 +61,6 @@ function App() {
             <Route path='' element={localStorage.getItem("cltTkn") ? <ClientHome /> : <Navigate replace to='/client/signin' />} />
             <Route path='settings' element={localStorage.getItem("cltTkn") ? <ClientSettings /> : <Navigate replace to='/client/signin' />} />
             <Route path='booking/:id' element={localStorage.getItem("cltTkn") ? <ClientBookingDetails /> : <Navigate replace to='/client/signin' />} />
-            <Route path='new-booking' element={localStorage.getItem("cltTkn") ? <NewBooking /> : <Navigate replace to='/client/signin' />} />
             <Route path='success' element={localStorage.getItem("cltTkn") ? <SuccessPage /> : <Navigate replace to='/client/signin' />} />
           </Route>
 
