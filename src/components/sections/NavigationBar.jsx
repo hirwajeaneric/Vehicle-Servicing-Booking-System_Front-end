@@ -1,8 +1,15 @@
-import React from 'react'
-import { SimpleTopNavigation } from '../styled-components/landingPageComponents'
+import React, { useState } from 'react'
+import { Logo, MobileMenuButton, MobileMenueContainer, SimpleTopNavigation } from '../styled-components/navigationStyledComponents'
 import { Link, NavLink } from 'react-router-dom'
+import { CarCrash, Close, Menu } from '@mui/icons-material';
 
 export default function NavigationBar() {
+  const [openNav, setOpenNav] = useState(false);
+
+  const toggleMenu = () => {
+    setOpenNav(!openNav);
+  }
+
   const logout = (e) => {
     e.preventDefault();
     localStorage.removeItem('cltTkn');
@@ -16,6 +23,7 @@ export default function NavigationBar() {
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/book-now'}>Book now</NavLink></li>
       </ul>
+      <Logo to={'/'} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px', fontWeight: '700'}}><CarCrash />VSBA</Logo>
       <ul>
         {localStorage.getItem('cltTkn') ?
           <>
@@ -28,6 +36,23 @@ export default function NavigationBar() {
         {localStorage.getItem('cltTkn') && <li><Link to={"/"} onClick={logout}>Log out</Link></li>}
       </ul>
       {/* Mobile Menu  */}
+      <MobileMenuButton type='button' onClick={toggleMenu}>{openNav ? <Close /> : <Menu />}</MobileMenuButton>
+      {openNav && <MobileMenueContainer>
+        <ul>
+          <li><NavLink onClick={toggleMenu} to={'/'}>Home</NavLink></li>
+          <li><NavLink onClick={toggleMenu} to={'/book-now'}>Book now</NavLink></li>
+          {localStorage.getItem('cltTkn') ?
+            <>
+              <li><NavLink onClick={toggleMenu} to={'/client/'}>My account</NavLink></li>
+              <li><NavLink onClick={toggleMenu} to={'/client/settings'}>Settings</NavLink></li> 
+            </>
+          :
+            <li><NavLink onClick={toggleMenu} to={'/client/signin'}>Sign in</NavLink></li>
+          }
+          {localStorage.getItem('cltTkn') && <li><Link to={"/"} onClick={()=> {logout(); toggleMenu();}}>Log out</Link></li>}
+        </ul>
+      </MobileMenueContainer>}
+
     </SimpleTopNavigation>
   )
 }

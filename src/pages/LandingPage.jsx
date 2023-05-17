@@ -21,7 +21,7 @@ const LandingPage = () => {
           <h1>Welcome to VSBA</h1>
           <h1>Your best Vehicle Services Booking Application</h1>
           <p>Book for a slot in the garage, and we shall tweak your vehicle in no time.</p>
-          <div>
+          <div style={{ zIndex: '700' }}>
             <Button variant='contained' size='medium' color='info' onClick={(e) =>{ navigate('/book-now'); }}>Book now</Button>
             <Button variant='contained' size='medium' color='secondary' onClick={(e) =>{ navigate('/client/signup'); }}>Create an account</Button>
           </div>

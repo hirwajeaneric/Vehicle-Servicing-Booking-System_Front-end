@@ -6,8 +6,7 @@ export const Banner = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // background-image: url('/public/Assets/how_to_talk_to_a_mechanic - from carguru.jpeg')
-    // background-size: contain;
+    z-index: 700;
 
 
     @media (max-width: 1080px) {
@@ -60,51 +59,6 @@ export const BannerContent = styled.div`
             align-items: center;
             justify-content: center;
         }   
-    }
-`;
-
-export const SimpleTopNavigation = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    position: sticky;
-    top: 0;
-    background: black;
-    padding: 30px 90px;
-
-    ul {
-        list-style-type: none;
-        
-        li {
-            float: left;
-            a {
-                padding: 0 10px;
-                text-decoration: none;
-                color: white;
-            }
-        }
-    }
-
-    @media (max-width: 1080px) {
-            
-    }
-
-    @media (max-width: 768px) {
-        padding: 20px 40px;
-        ul {
-            li {
-                a {
-                    padding: 0 5px;
-                }
-            }
-        }
-    }
-
-    @media (max-width: 480px) {
-        padding: 20px 10px;
     }
 `;
 
