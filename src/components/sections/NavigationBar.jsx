@@ -15,15 +15,15 @@ export default function NavigationBar() {
       <ul>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/book-now'}>Book now</NavLink></li>
+      </ul>
+      <ul>
         {localStorage.getItem('cltTkn') ?
-          <li><NavLink to={'/client/'}>My account</NavLink></li> 
+          <>
+            <li><NavLink to={'/client/'}>My account</NavLink></li>
+            <li><NavLink to={'/client/settings'}>Settings</NavLink></li> 
+          </>
         :
           <li><NavLink to={'/client/signin'}>Sign in</NavLink></li>
-        }
-        {(window.location.pathname.includes('/client/signin/') || window.location.pathname.includes('/client/signup/') || window.location.pathname.includes('settings')) &&
-          <>
-            <li><NavLink to={'/client/settings'}>Settings</NavLink></li>
-          </>  
         }
         {localStorage.getItem('cltTkn') && <li><Link to={"/"} onClick={logout}>Log out</Link></li>}
       </ul>

@@ -86,7 +86,7 @@ export default function ClientSignin() {
         <meta name="description" content={`Client sign in form.`} /> 
       </Helmet>
       <InnerContainer>
-        <h2 style={{ textAlign: 'center' }}>ADMIN SIGN IN</h2>
+        <h2 style={{ textAlign: 'center' }}>SIGN IN</h2>
         <AuthFormContainer onSubmit={submitForm}>
           <TextField id="filled-basic" sx={{ m: 1, width: '40ch' }}  size='small' label="email" variant="filled" name='email' value={formData.email || ''} onChange={handleChange}/>
           <FormControl variant="filled">
