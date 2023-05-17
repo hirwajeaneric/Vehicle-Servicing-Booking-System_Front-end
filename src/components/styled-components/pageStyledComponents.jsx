@@ -22,6 +22,28 @@ export const SectionOrPageContainer = styled.div`
     }
 `;
 
+export const BookingFormContainer = styled.div`
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 90px;
+
+    @media (max-width: 1080px) {
+            
+    }
+
+    @media (max-width: 768px) {
+        margin-top: 30px;
+    }
+
+    @media (max-width: 480px) {
+        margin-top: 20px;
+    }
+`;
+
 export const Page = styled.div`
     width: 100%;
     margin-top: 40px;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { AuthFormContainer, CommandButtons } from '../styled-components/authenticationPages';
 import { Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { BookingFormContainer } from '../styled-components/pageStyledComponents';
 
 export default function BookingForm(props) {
     const { bookingFormData, setBookingFormData, submitForm, handleFormInput, progress } = props;
@@ -14,7 +15,7 @@ export default function BookingForm(props) {
     };
 
     return (
-        <div>
+        <BookingFormContainer>
             <AuthFormContainer onSubmit={submitForm}>
                 <TextField id="fullName" sx={{ m: 1, width: '40ch' }}  size='small' label="Full name" variant="filled" name='fullName' value={bookingFormData.fullName || ''} onChange={handleFormInput}/>
                 
@@ -29,7 +30,7 @@ export default function BookingForm(props) {
                             <em>Select model</em>
                         </MenuItem>
                         <MenuItem value={'Car'}>Car</MenuItem>
-                        <MenuItem value={'Motorcycle'}>MotoCycle</MenuItem>
+                        <MenuItem value={'Motorcycle'}>Motorcycle</MenuItem>
                     </Select>
                 </FormControl>
                 
@@ -42,17 +43,17 @@ export default function BookingForm(props) {
                             <em>Select service</em>
                         </MenuItem>
                         <MenuItem value={'Oil Change'}>Oil Change</MenuItem>
-                        <MenuItem value={'Tire Rotation'}>Typre Rotation</MenuItem>
+                        <MenuItem value={'Tire Rotation'}>Tire Rotation</MenuItem>
                     </Select>
                 </FormControl>
                 
                 <TextField id="serviceDescription" sx={{ m: 1, width: '40ch' }} label="Service Description" multiline rows={4} variant="filled" name='serviceDescription' value={bookingFormData.serviceDescription || ''} onChange={handleFormInput}/>
                 
                 <CommandButtons>
-                    {!progress.disabled && <Button type='submit' variant='contained' size='medium' color='primary'>Submit booking </Button>}
-                    {progress.disabled && <Button type='submit' variant='contained' size='medium' color='primary' disabled>{progress.value} </Button>}
+                    {!progress.disabled && <Button style={{ width: '100%' }} type='submit' variant='contained' size='medium' color='primary'>Submit booking </Button>}
+                    {progress.disabled && <Button style={{ width: '100%' }} type='submit' variant='contained' size='medium' color='primary' disabled>{progress.value} </Button>}
                 </CommandButtons>
             </AuthFormContainer>
-        </div>
+        </BookingFormContainer>
     )
 }
