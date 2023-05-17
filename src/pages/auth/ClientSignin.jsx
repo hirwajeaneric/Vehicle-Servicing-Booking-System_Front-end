@@ -20,7 +20,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const ClientSignin = () => {  
+export default function ClientSignin() {  
   // States
   const [showPassword, setShowPassword] = React.useState(false);
   const [formData, setFormData] = useState({ email: '', registrationNumber: 0, password: '' });
@@ -63,8 +63,8 @@ const ClientSignin = () => {
             const { token, ...userInfo } = response.data.user;
             
             setProgress({ value: '', disabled: false });
-            localStorage.setItem('admnInfo', JSON.stringify(userInfo));
-            localStorage.setItem('admnTkn', token);
+            localStorage.setItem('cltInfo', JSON.stringify(userInfo));
+            localStorage.setItem('cltTkn', token);
             window.location.replace('/client/');
           }
         }, 2000); 
@@ -114,5 +114,3 @@ const ClientSignin = () => {
     </AuthenticationPageContainer>
   )
 }
-
-export default ClientSignin
