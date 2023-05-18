@@ -6,7 +6,9 @@ export const AdminPage = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    background: #f0f5f5;
+    height: 100vh;
 
     @media (max-width: 1080px) {
             
@@ -69,13 +71,15 @@ export const LowerBar = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding: 8px 90px;
-    background: #cce0ff;
+    padding: 10px 90px;
+    background: white;
     gap: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.19);
 
     a {
         color: #003380;
         text-decoration: none;
+        font-size: 90%;
     }
 
     a:hover {
@@ -225,7 +229,7 @@ export const DashboardTitleBar = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 10px 0px;
+    padding: 20px 0px 10px;
     
     h3 {
         font-weight: 600;
@@ -245,29 +249,13 @@ export const DashboardTitleBar = styled.div`
     }
 `;
 
-export const LecturerList = styled.ul`
-    list-style-type: none;
-    font-size: 90%;
+export const StatisticsContainer = styled.ul`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
     width: 100%;
-
-    li {
-        width: 100%;
-        border-bottom: 1px solid gray;
-        font-weight: bold;
-
-        &:hover {
-            background: #ebf0fa;
-        }
-
-        button {
-            cursor: pointer;
-            width: 100%;
-            text-align: left;
-            background: transparent;
-            border: none;
-            padding: 10px;
-        }
-    }
+    gap: 15px;
 
     @media (max-width: 1080px) {
             
@@ -282,9 +270,42 @@ export const LecturerList = styled.ul`
     }
 `;
 
-export const ModalLabel = styled.label`
-    color: gray;
-    font-size: 95%;
+export const AStatistic = styled.label`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    height: 100px;
+    background: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+
+    &:hover {
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    h5 {
+        color: gray;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        
+        h4 {
+            font-size: 170%;
+        } 
+    }
+
+    svg {
+        font-size: 300%;
+        color: white;
+        border-radius: 50px;
+        padding: 5px;
+    }
 
     @media (max-width: 1080px) {
             
@@ -329,29 +350,14 @@ export const Popup = styled(Box)`
     }
 `;
 
-export const TopCourseInformation = styled.div`
+export const InnerContainer = styled.div`
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: flex-start;
+    gap: 20px;
     width: 100%;    
-    flex-wrap: wrap;
-
-    div {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        
-        div {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            width: 100%;
-            align-items: center;
-            gap: 20px;
-        }
-    }
+    padding: 20px;
 
     @media (max-width: 1080px) {
             
