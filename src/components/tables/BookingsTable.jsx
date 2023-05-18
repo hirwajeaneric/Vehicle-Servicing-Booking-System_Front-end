@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { DataGrid, GridToolbarContainer, GridToolbarExport } from '@mui/x-data-grid';
 import { Box, IconButton, Tooltip } from '@mui/material';
 import { Preview } from '@mui/icons-material';
@@ -6,25 +6,51 @@ import { useNavigate } from 'react-router-dom';
 
 const columns = [
   {   
-      field: '_id', 
-      headerName: '_ID', 
-      hide:true
+    field: '_id', 
+    headerName: '_ID', 
+    hide:true
   },
   {
-      field: 'academicYear',
-      headerName: 'Academic Year',
-      width: 180,
+    field: 'fullName',
+    headerName: 'Full Name',
+    width: 200,
   },
   {
-      field: 'semester',
-      headerName: 'Semester',
-      width: 180,
-  },{
-      field: 'actions',
-      headerName: 'Actions',
-      type: 'actions',
-      width: 180,
-      renderCell: (params) => <TableActions params= {params} />
+    field: 'phone',
+    headerName: 'Phone',
+    width: 120,
+  },
+  {
+    field: 'vehicleType',
+    headerName: 'Vehicle Type',
+    width: 140,
+  },
+  {
+    field: 'vehicleModel',
+    headerName: 'Vehicle Model',
+    width: 140,
+  },
+  {
+    field: 'typeOfService',
+    headerName: 'Type of Service',
+    width: 140,
+  },
+  {
+    field: 'clientConfirmation',
+    headerName: 'Client Confirmation',
+    width: 120,
+  },
+  {
+    field: 'status',
+    headerName: 'Status',
+    width: 100,
+  },
+  {
+    field: 'actions',
+    headerName: 'Actions',
+    type: 'actions',
+    width: 120,
+    renderCell: (params) => <TableActions params= {params} />
   },
 ]
 
@@ -37,22 +63,15 @@ function CustomToolbar() {
 }
 
 export const TableStyles = {
-  padding: '15px',
+  padding: '0px',
   width: '100%',
-  height: '350px'
+  height: '270px'
 }
 
 var rows = [];
-var course = {};
 
-export default function CourseAllocationsTable({data}) {
-  course = data;
-
-  data.allocations.forEach(element => {
-    element.id = element._id;
-  });
-
-  rows = data.allocations;
+export default function BookingsTable({data}) {
+  rows = data;
   
   return (
     <Box sx={TableStyles}>
@@ -73,12 +92,13 @@ export default function CourseAllocationsTable({data}) {
 
 // Table actions
 const TableActions = ({params}) => {
+  const navigate = useNavigate();
+
   return (
     <Box>
       <Tooltip title='View / Edit'>
         <IconButton onClick={() => {  
-          localStorage.setItem('courseAllocation', JSON.stringify({allocation: params.row, otherCourseInfo: course}));
-          window.location.reload();
+          navigate(`/admin/request/${params.row._id}`);
           }}>
           <Preview />
         </IconButton>

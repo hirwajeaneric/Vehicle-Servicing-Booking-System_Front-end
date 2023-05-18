@@ -1,16 +1,31 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-import NavigationBar from '../../../components/sections/NavigationBar';
-import { SectionOrPageContainer } from '../../../components/styled-components/pageStyledComponents';
+import { NavLink, Outlet } from 'react-router-dom';
+import { LogoSpace, LowerBar, MainContainer, OutLetSpace, TopBar, UpperBar, AdminPage } from '../../../components/styled-components/dashboardStyledComponents';
+import { CarCrash } from '@mui/icons-material';
+
 
 const Index = () => {
   return (
-    <div>
-        <NavigationBar />
-        <SectionOrPageContainer>
-          <Outlet />
-        </SectionOrPageContainer>
-    </div>
+    <AdminPage>
+        <TopBar>
+          <UpperBar>
+            <LogoSpace>
+              <CarCrash /><span>VSBA</span>
+            </LogoSpace>
+          </UpperBar>
+          <LowerBar>
+            <NavLink to={'/admin/'}>Dashbaord</NavLink>
+            <NavLink to={'/admin/bookings'}>Bookings</NavLink>
+            <NavLink to={'/admin/schedules'}>Schedules</NavLink>
+            <NavLink to={'/admin/settings'}>Settings</NavLink>
+          </LowerBar>
+        </TopBar>
+        <MainContainer>
+          <OutLetSpace>
+            <Outlet />
+          </OutLetSpace>
+        </MainContainer>
+    </AdminPage>
   )
 }
 

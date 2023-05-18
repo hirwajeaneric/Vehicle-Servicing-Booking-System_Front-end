@@ -31,7 +31,7 @@ export const BannerContent = styled.div`
     align-items: center;
     justify-content: center;
     height: 90vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     color: white;
 
     div {

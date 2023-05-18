@@ -32,7 +32,7 @@ let Apis = {
         findByClientConfirmation: `${mainAddress}/booking/findByClientConfirmation?clientConfirmation=`,
     },
     scheduleApis: {
-        listAllCourses: `${mainAddress}/schedule/list`,
+        list: `${mainAddress}/schedule/list`,
         findByPostDate: `${mainAddress}/schedule/findByPostDate?postDate=`,
         findById: `${mainAddress}/schedule/findById?id=`,
         update: `${mainAddress}/schedule/update?id=`,

@@ -14,6 +14,7 @@ const LandingPage = () => {
         <title>Welcome to VSBA.</title>
         <meta name="description" content="Welcome to VSBA."/>
       </Helmet>
+      
       <NavigationBar />
 
       <Banner style={{ backgroundImage: "url('Assets/how_to_talk_to_a_mechanic - from carguru.jpeg')", backgroundOrigin:'initial', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>

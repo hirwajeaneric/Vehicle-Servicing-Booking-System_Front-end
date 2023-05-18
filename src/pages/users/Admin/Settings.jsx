@@ -1,16 +1,20 @@
 import React from 'react'
-import { Page } from '../../../components/styled-components/pageStyledComponents'
 import { Helmet } from 'react-helmet-async'
+import { DashboardContentContainer, DashboardTitleBar } from '../../../components/styled-components/dashboardStyledComponents'
 
 const Settings = () => {
   return (
-    <Page>
+    <>
       <Helmet>
         <title>Account settings - Administrator</title>
         <meta name="description" content="Administrator's user account settings page."/> 
       </Helmet>
-      Settings
-    </Page>
+      <DashboardContentContainer>
+        <DashboardTitleBar>
+          <h3>Settings</h3>
+        </DashboardTitleBar>
+      </DashboardContentContainer>
+    </>
   )
 }
 
