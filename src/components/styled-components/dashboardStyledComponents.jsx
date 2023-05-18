@@ -541,6 +541,10 @@ export const DataColumn = styled.div`
         margin-bottom: 4px;
     }
 
+    input, select {
+        width: 50%;
+    }
+
     @media (max-width: 1080px) {
             
     }

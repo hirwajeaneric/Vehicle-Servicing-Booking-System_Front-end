@@ -16,7 +16,7 @@ const Report = () => {
   const params = useParams();
   const [bookingDetails, setBookingDetails] = useState({});
   const [displayAttachment, setDisplayAttachments] = useState('');
-  const [updates, setUpdates] = useState({ status: '', workStatus: '' })
+  const [updates, setUpdates] = useState({ status: '', workStatus: '', temporalSlotNumber: '', startHour: '', serviceDay: '' })
 
   const [progress, setProgress] = useState({ value: '', disabled: false});
   const [open, setOpen] = useState(false);
@@ -30,7 +30,7 @@ const Report = () => {
     axios.get(`${Apis.bookingApis.findById}${params.id}`)
     .then(response => {
       setBookingDetails(response.data.booking);
-      setDisplayAttachments(bookingDetails.photos[0]);
+      setDisplayAttachments(response.data.booking.photos[0]);
     })
     .catch(error => console.log("Error: "+error));
   },[bookingDetails.photos, params.id]);
@@ -40,6 +40,13 @@ const Report = () => {
       ...updates, [input.name]: input.value
     })
     console.log(updates);
+  };
+
+  const handleMainFormInput = ({currentTarget: input}) => { 
+    setBookingDetails({
+      ...bookingDetails, [input.name]: input.value
+    })
+    console.log(bookingDetails);
   };
 
   const updateBooking = (e) => {
@@ -117,17 +124,35 @@ const Report = () => {
               <label htmlFor="submittedOn">Submitted on</label>
               <p>{bookingDetails.submittedOn}</p>
             </DataColumn>
-            <DataColumn>
-              <label htmlFor="serviceDay">Service day</label>
-              <p>{bookingDetails.serviceDay}</p>
+            <DataColumn style={{ flexDirection: 'row'}}>
+              <DataColumn>
+                <label htmlFor="serviceDay">Service day</label>
+                <p>{bookingDetails.serviceDay}</p>
+              </DataColumn>
+              <DataColumn>
+                <label htmlFor="serviceDay">Service day</label>
+                <input type='date' id='serviceDay' name='serviceDay' value={updates.serviceDay || ''} onChange={handleFormInput} />
+              </DataColumn>
             </DataColumn>
-            <DataColumn>
-              <label htmlFor="startHour">Start hour</label>
-              <p>{bookingDetails.startHour} h</p>
+            <DataColumn style={{ flexDirection: 'row'}}>
+              <DataColumn>
+                <label htmlFor="startHour">Start hour</label>
+                <p>{bookingDetails.startHour} h</p>
+              </DataColumn>
+              <DataColumn>
+                <label htmlFor="startHour">Update</label>
+                <input type='text' id='startHour' name='startHour' value={updates.startHour || ''} onChange={handleFormInput} />
+              </DataColumn>
             </DataColumn>
-            <DataColumn>
-              <label htmlFor="temporalSlotNumber">Slot number</label>
-              <p>{bookingDetails.temporalSlotNumber}</p>
+            <DataColumn style={{ flexDirection: 'row'}}>
+              <DataColumn>
+                <label htmlFor="temporalSlotNumber">Slot number</label>
+                <p>{updates.temporalSlotNumber || ''} onChange={handleFormInput}</p>
+              </DataColumn>
+              <DataColumn>
+                <label htmlFor="temporalSlotNumberUpdate">Update</label>
+                <input type='text' id='temporalSlotNumber' name='temporalSlotNumber' value={updates.temporalSlotNumber || ''} onChange={handleFormInput} />
+              </DataColumn>
             </DataColumn>
             <DataColumn style={{ flexDirection: 'row'}}>
               <DataColumn>
