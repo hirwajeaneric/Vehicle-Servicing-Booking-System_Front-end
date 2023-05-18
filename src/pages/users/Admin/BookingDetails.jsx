@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Page } from '../../../components/styled-components/pageStyledComponents'
 import { Helmet } from 'react-helmet-async'
 import { AttachmentContainer, DashboardContentContainer, DashboardTitleBar, DataColumn, FirstPart, InnerContainer, LeftSide, RightSide, SecondPart, ThirdPart } from '../../../components/styled-components/dashboardStyledComponents'
 import axios from 'axios'
@@ -20,9 +19,9 @@ const Report = () => {
     .catch(error => console.log("Error: "+error));
   },[bookingDetails.photos, params.id]);
 
-  const changeDisplayAttachment = () => {
+  // const changeDisplayAttachment = () => {
     
-  }
+  // }
 
   return (
     <>
@@ -95,9 +94,8 @@ const Report = () => {
             <DataColumn>
               <label htmlFor="submittedOn">Attachment</label>
               <AttachmentContainer>
-
+                <a target='about_blank' href={`http://localhost:5151/api/v1/vsb/files/${displayAttachment}`}><img src={`http://localhost:5151/api/v1/vsb/files/${displayAttachment}`} alt='' /></a>
               </AttachmentContainer>
-              <img src={`http://localhost:5151/api/v1/vsb/${displayAttachment}`} alt='' />
             </DataColumn>
           </ThirdPart>
         </InnerContainer>

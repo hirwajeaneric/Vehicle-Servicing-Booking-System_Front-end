@@ -539,6 +539,10 @@ export const AttachmentContainer = styled.div`
     width: 100%;
     height: 300px;
 
+    img {
+        width: 100%;
+    }
+
     @media (max-width: 1080px) {
             
     }
