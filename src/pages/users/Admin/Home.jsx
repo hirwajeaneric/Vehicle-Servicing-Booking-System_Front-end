@@ -10,18 +10,40 @@ import BookingsTable from '../../../components/tables/BookingsTable';
 
 const Home = () => {
   const [listOfBookings, setListOfBookings] = useState([]);
+  const [stats, setStats] = useState({ accepted: 0, completed: 0 })
+  const [schedules, setSchedules] = useState([]);
 
   useEffect(() => {
+    // Fetch bookings
     axios.get(Apis.bookingApis.list)
     .then(response => {
-      response.data.bookings.forEach(element => {
-        element.id = element._id;
+      let confirmed = [];
+      let completed = [];
+      response.data.bookings.forEach(element => { 
+        element.id = element._id 
+        if (element.status === 'Confirmed') {
+          confirmed.push(element);
+        } else if (element.workStatus === 'Ended') {
+          completed.push(element);
+        }
       })
+      setStats({ ...stats, accepted: confirmed.length, completed: completed.length })
       response.data.bookings.sort((a, b) => new Date(b.submittedOn) - new Date(a.submittedOn))
       setListOfBookings(response.data.bookings);
     })
     .catch(error => console.log('Error: '+error));
   },[])
+
+  useEffect(()=>{
+    // Fetch schedules
+    axios.get(Apis.scheduleApis.list)
+    .then(response => {
+      setSchedules(response.data.schedules);
+      setStats({ ...stats, schedules: response.data.schedules.length })
+    })
+    .catch(error => console.log('Error: '+error));
+  },[])
+
 
   return (
     <>
@@ -37,28 +59,28 @@ const Home = () => {
           <AStatistic>
             <div>
               <h5>Total bookings</h5>
-              <h4>3</h4>
+              <h4>{listOfBookings.length}</h4>
             </div>
             <RiReservedLine style={{ background: '#ff6666' }} />
           </AStatistic>
           <AStatistic>
             <div>
               <h5>Accepted</h5>
-              <h4>0</h4>
+              <h4>{stats.accepted}</h4>
             </div>
             <MdOutlineApproval style={{ background: ' #009933' }} />
           </AStatistic>
           <AStatistic>
             <div>
               <h5>Completed</h5>
-              <h4>0</h4>
+              <h4>{stats.completed}</h4>
             </div>
             <MdOutlineIncompleteCircle style={{ background: '#0066ff' }} />
           </AStatistic>
           <AStatistic>
             <div>
               <h5>Schedules</h5>
-              <h4>3</h4>
+              <h4>{schedules.length}</h4>
             </div>
             <AiOutlineSchedule style={{ background: ' #b300b3' }} />
           </AStatistic>
