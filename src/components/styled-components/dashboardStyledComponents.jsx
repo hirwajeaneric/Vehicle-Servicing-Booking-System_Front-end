@@ -430,12 +430,12 @@ export const SideMenu = styled.div`
     }
 `;
 
-export const LeftSide = styled.div`
+export const FirstPart = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 30%;
+    width: 29%;
 
     @media (max-width: 1080px) {
             
@@ -454,12 +454,36 @@ export const LeftSide = styled.div`
     }
 `;
 
-export const RightSide = styled.div`
+export const SecondPart = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 30%;
+    width: 29%;
+
+    @media (max-width: 1080px) {
+            
+    }
+
+    @media (max-width: 991px) {
+        
+    }
+
+    @media (max-width: 768px) {
+     
+    }
+
+    @media (max-width: 480px) {
+        
+    }
+`;
+
+export const ThirdPart = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 29%;
 
     @media (max-width: 1080px) {
             
@@ -480,10 +504,16 @@ export const RightSide = styled.div`
 
 export const DataColumn = styled.div`
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     width: 100%;
+    margin-bottom: 10px;
+
+    label {
+        font-size: 90%;
+        color: gray;
+        margin-bottom: 4px;
+    }
 
     @media (max-width: 1080px) {
             
@@ -502,16 +532,12 @@ export const DataColumn = styled.div`
     }
 `;
 
-export const SmallButton = styled.button`
-    padding: 2px 10px;
-    border: none;
-    color: white;
-    background: green;
+export const AttachmentContainer = styled.div`
+    padding: 2px;
+    background: gray;
     cursor: pointer;
-
-    &:hover {
-        color: black;
-    }
+    width: 100%;
+    height: 300px;
 
     @media (max-width: 1080px) {
             

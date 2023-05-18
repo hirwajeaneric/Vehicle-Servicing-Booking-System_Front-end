@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Page } from '../../../components/styled-components/pageStyledComponents'
 import { Helmet } from 'react-helmet-async'
-import { DashboardContentContainer, DashboardTitleBar, DataColumn, InnerContainer, LeftSide, RightSide } from '../../../components/styled-components/dashboardStyledComponents'
+import { AttachmentContainer, DashboardContentContainer, DashboardTitleBar, DataColumn, FirstPart, InnerContainer, LeftSide, RightSide, SecondPart, ThirdPart } from '../../../components/styled-components/dashboardStyledComponents'
 import axios from 'axios'
 import Apis from '../../../utils/Apis'
 import { useParams } from 'react-router-dom'
@@ -9,14 +9,20 @@ import { useParams } from 'react-router-dom'
 const Report = () => {
   const params = useParams();
   const [bookingDetails, setBookingDetails] = useState({});
+  const [displayAttachment, setDisplayAttachments] = useState('');
 
   useEffect(()=>{
     axios.get(`${Apis.bookingApis.findById}${params.id}`)
     .then(response => {
       setBookingDetails(response.data.booking);
+      setDisplayAttachments(bookingDetails.photos[0]);
     })
     .catch(error => console.log("Error: "+error));
-  },[params.id]);
+  },[bookingDetails.photos, params.id]);
+
+  const changeDisplayAttachment = () => {
+    
+  }
 
   return (
     <>
@@ -28,8 +34,8 @@ const Report = () => {
         <DashboardTitleBar>
           <h3>Booking details</h3>
         </DashboardTitleBar>
-        <InnerContainer>
-          <LeftSide>
+        <InnerContainer style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <FirstPart>
             <DataColumn>
               <label htmlFor="fullName">Full name</label>
               <p>{bookingDetails.fullName}</p>
@@ -58,18 +64,42 @@ const Report = () => {
               <label htmlFor="clientConfirmation">Client Confirmation</label>
               <p>{bookingDetails.clientConfirmation}</p>
             </DataColumn>
+          </FirstPart>
+          <SecondPart>
             <DataColumn>
               <label htmlFor="serviceDay">Service day</label>
               <p>{bookingDetails.serviceDay}</p>
             </DataColumn>
             <DataColumn>
               <label htmlFor="startHour">Start hour</label>
-              <p>{bookingDetails.startHour}</p>
+              <p>{bookingDetails.startHour} h</p>
             </DataColumn>
-          </LeftSide>
-          <RightSide>
+            <DataColumn>
+              <label htmlFor="temporalSlotNumber">Slot number</label>
+              <p>{bookingDetails.temporalSlotNumber}</p>
+            </DataColumn>
+            <DataColumn>
+              <label htmlFor="status">Status</label>
+              <p>{bookingDetails.status}</p>
+            </DataColumn>
+            <DataColumn>
+              <label htmlFor="workStatus">Work status</label>
+              <p>{bookingDetails.workStatus}</p>
+            </DataColumn>
+            <DataColumn>
+              <label htmlFor="submittedOn">Submitted on</label>
+              <p>{bookingDetails.submittedOn}</p>
+            </DataColumn>
+          </SecondPart>
+          <ThirdPart>
+            <DataColumn>
+              <label htmlFor="submittedOn">Attachment</label>
+              <AttachmentContainer>
 
-          </RightSide>
+              </AttachmentContainer>
+              <img src={`http://localhost:5151/api/v1/vsb/${displayAttachment}`} alt='' />
+            </DataColumn>
+          </ThirdPart>
         </InnerContainer>
       </DashboardContentContainer>
     </>
