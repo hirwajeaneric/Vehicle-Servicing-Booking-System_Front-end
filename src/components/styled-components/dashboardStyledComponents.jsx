@@ -280,6 +280,7 @@ export const AStatistic = styled.label`
     background: white;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
     padding: 20px;
+    border-radius: 5px;
 
     &:hover {
         box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.19);
@@ -358,6 +359,10 @@ export const InnerContainer = styled.div`
     gap: 20px;
     width: 100%;    
     padding: 20px;
+    background: white;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
 
     @media (max-width: 1080px) {
             

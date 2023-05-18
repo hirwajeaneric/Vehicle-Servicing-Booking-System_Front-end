@@ -13,32 +13,32 @@ const columns = [
   {
     field: 'fullName',
     headerName: 'Full Name',
-    width: 100,
+    width: 200,
   },
   {
     field: 'phone',
     headerName: 'Phone',
-    width: 100,
+    width: 120,
   },
   {
     field: 'vehicleType',
     headerName: 'Vehicle Type',
-    width: 100,
+    width: 140,
   },
   {
     field: 'vehicleModel',
     headerName: 'Vehicle Model',
-    width: 100,
+    width: 140,
   },
   {
     field: 'typeOfService',
     headerName: 'Type of Service',
-    width: 100,
+    width: 140,
   },
   {
     field: 'clientConfirmation',
     headerName: 'Client Confirmation',
-    width: 100,
+    width: 120,
   },
   {
     field: 'status',
@@ -49,7 +49,7 @@ const columns = [
     field: 'actions',
     headerName: 'Actions',
     type: 'actions',
-    width: 180,
+    width: 120,
     renderCell: (params) => <TableActions params= {params} />
   },
 ]
@@ -63,9 +63,9 @@ function CustomToolbar() {
 }
 
 export const TableStyles = {
-  padding: '15px',
+  padding: '0px',
   width: '100%',
-  height: '350px'
+  height: '270px'
 }
 
 var rows = [];
@@ -98,7 +98,7 @@ const TableActions = ({params}) => {
     <Box>
       <Tooltip title='View / Edit'>
         <IconButton onClick={() => {  
-          navigate(`request/${params.row}`);
+          navigate(`request/${params.row._id}`);
           }}>
           <Preview />
         </IconButton>
