@@ -10,7 +10,7 @@ export const SimpleTopNavigation = styled.div`
     width: 100%;
     position: sticky;
     top: 0;
-    background: black;
+    background: #0066ff;
     padding: 30px 90px;
     z-index: 1000;
 

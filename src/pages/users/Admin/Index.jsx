@@ -1,15 +1,30 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import NavigationBar from '../../../components/sections/NavigationBar';
-import { SectionOrPageContainer } from '../../../components/styled-components/pageStyledComponents';
+import { LogoSpace, LowerBar, MainContainer, OutLetSpace, SideNavigationBar, ToBar, TopBar, UpperBar } from '../../../components/styled-components/dashboardStyledComponents';
+import { CarCrash } from '@mui/icons-material';
+
 
 const Index = () => {
   return (
     <div>
-        <NavigationBar />
-        <SectionOrPageContainer>
-          <Outlet />
-        </SectionOrPageContainer>
+        <TopBar>
+          <UpperBar>
+            <LogoSpace>
+              <CarCrash /><span>VSBA</span>
+            </LogoSpace>
+          </UpperBar>
+          <LowerBar>
+            
+          </LowerBar>
+        </TopBar>
+        <MainContainer>
+          <SideNavigationBar>
+
+          </SideNavigationBar>
+          <OutLetSpace>
+            <Outlet />
+          </OutLetSpace>
+        </MainContainer>
     </div>
   )
 }
