@@ -430,86 +430,67 @@ export const SideMenu = styled.div`
     }
 `;
 
-export const DetailsForAllocatedLecturer = styled.div`
-    padding: 15px;
+export const LeftSide = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 30%;
+
+    @media (max-width: 1080px) {
+            
+    }
+
+    @media (max-width: 991px) {
+        
+    }
+
+    @media (max-width: 768px) {
+     
+    }
+
+    @media (max-width: 480px) {
+        
+    }
+`;
+
+export const RightSide = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 30%;
+
+    @media (max-width: 1080px) {
+            
+    }
+
+    @media (max-width: 991px) {
+        
+    }
+
+    @media (max-width: 768px) {
+     
+    }
+
+    @media (max-width: 480px) {
+        
+    }
+`;
+
+export const DataColumn = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
 
-    div {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-
-        div {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-start;            
-        }
-    }
-
-    h4 {
-        margin-bottom: 10px;
-    }
-
     @media (max-width: 1080px) {
             
     }
 
     @media (max-width: 991px) {
         
-    }
-
-    @media (max-width: 768px) {
-     
-    }
-
-    @media (max-width: 480px) {
-        
-    }
-`;
-
-export const Lecturers = styled.div`
-    width: 33%;
-    margin-bottom: 20px;
-
-    h4 {
-        margin-bottom: 10px;
-    }
-
-    @media (max-width: 1080px) {
-            
-    }
-
-    @media (max-width: 991px) {
-        
-    }
-
-    @media (max-width: 768px) {
-     
-    }
-
-    @media (max-width: 480px) {
-        
-    }
-`;
-
-export const ChooseLecturers = styled.div`
-    width: 33%;
-    margin-bottom: 20px;
-
-    h4 {
-        margin-bottom: 10px;
-    }
-
-    @media (max-width: 1080px) {
-            
-    }
-
-    @media (max-width: 991px) {
-        width: 100%;
     }
 
     @media (max-width: 768px) {

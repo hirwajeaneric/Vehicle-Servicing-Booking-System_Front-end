@@ -98,7 +98,7 @@ const TableActions = ({params}) => {
     <Box>
       <Tooltip title='View / Edit'>
         <IconButton onClick={() => {  
-          navigate(`request/${params.row._id}`);
+          navigate(`../request/${params.row._id}`);
           }}>
           <Preview />
         </IconButton>
