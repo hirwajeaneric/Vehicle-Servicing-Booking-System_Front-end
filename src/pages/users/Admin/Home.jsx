@@ -1,11 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { AStatistic, DashboardContentContainer, DashboardTitleBar, InnerContainer, StatisticsContainer } from '../../../components/styled-components/dashboardStyledComponents'
 import { RiReservedLine } from 'react-icons/ri'; 
 import { MdOutlineApproval, MdOutlineIncompleteCircle } from 'react-icons/md';
 import { AiOutlineSchedule } from 'react-icons/ai';
+import axios from 'axios';
+import Apis from '../../../utils/Apis';
 
 const Home = () => {
+  useEffect(() => {
+    axios.get(Apis.bookingApis.list)
+    .then(response => {
+      response.data.bookings.forEach(element => {
+
+      })
+      records.sort((a, b) => new Date(b.submittedOn) - new Date(a.submittedOn))
+    })
+    .catch(error => console.log('Error: '+error));
+  },[])
+
   return (
     <>
       <Helmet>
