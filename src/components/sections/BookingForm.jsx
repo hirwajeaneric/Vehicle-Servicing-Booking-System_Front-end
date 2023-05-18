@@ -2,9 +2,10 @@ import React from 'react';
 import { AuthFormContainer, CommandButtons } from '../styled-components/authenticationPages';
 import { Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import { BookingFormContainer } from '../styled-components/pageStyledComponents';
+import { MuiFileInput } from 'mui-file-input';
 
 export default function BookingForm(props) {
-    const { bookingFormData, setBookingFormData, submitForm, handleFormInput, progress } = props;
+    const { bookingFormData, attachment, attachments, setAttachment, setAttachments, setBookingFormData, submitForm, handleFormInput, handleFileInput, progress } = props;
 
     const handleVehicleTypeChanges = (event) => {
         setBookingFormData({...bookingFormData, vehicleType: event.target.value});
@@ -48,6 +49,8 @@ export default function BookingForm(props) {
                 </FormControl>
                 
                 <TextField id="serviceDescription" sx={{ m: 1, width: '40ch' }} label="Service Description" multiline rows={4} variant="filled" name='serviceDescription' value={bookingFormData.serviceDescription || ''} onChange={handleFormInput}/>
+
+                <input type={"file"} onChange={handleFileInput}/>
                 
                 <CommandButtons>
                     {!progress.disabled && <Button style={{ width: '100%' }} type='submit' variant='contained' size='medium' color='primary'>Submit booking </Button>}

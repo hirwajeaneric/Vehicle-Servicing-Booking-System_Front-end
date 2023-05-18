@@ -14,7 +14,8 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 const BookingNow = () => {
   const [bookingFormData, setBookingFormData] = useState({ email:'', fullName: '', phone:'', vehicleType: '', vehicleModel: '', typeOfService: '', serviceDescription: '' });
-
+  const [attachments, setAttachments] = useState([]);
+  const [attachment, setAttachment] = useState("");
   const [progress, setProgress] = useState({ value: '', disabled: false});
   const [open, setOpen] = useState(false);
   const [responseMessage, setResponseMessage] = useState({ message: '', severity: ''});
@@ -23,10 +24,32 @@ const BookingNow = () => {
     setOpen(false);
   };
 
-  const handleFormInput = ({currentTarget: input}) => { setBookingFormData({...bookingFormData, [input.name]: input.value}) };
+  const handleFormInput = ({currentTarget: input}) => { 
+    setBookingFormData({
+      ...bookingFormData, [input.name]: input.value
+    })
+    console.log(bookingFormData);
+  };
+
+  const handleFileInput = (e) => {
+    setAttachment(e.target.files[0]);
+    console.log(e.target.files[0])
+    // if (e.target.length > 1) {
+    //   setAttachments()
+    // }
+    // setBookingFormData({...bookingFormData, photos: e.target.file});
+  }
 
   const submitForm = (e) => {
     e.preventDefault();
+
+    const config = {
+      headers: {
+        "Content-Type":"multipart/form-data"
+      }
+    }
+
+    bookingFormData.photos = attachment;
 
     if (bookingFormData.fullName.length <= 3) {
       setResponseMessage({ message: 'Your name must be more than 3 characters long ', severity: 'error' });
@@ -35,7 +58,7 @@ const BookingNow = () => {
     } else {
       setProgress({ value: 'Submitting request ...', disabled: true });
 
-      axios.post(Apis.bookingApis.createNew, bookingFormData)
+      axios.post(Apis.bookingApis.createNew, bookingFormData, config)
       .then(response => {
         setTimeout(()=>{
           if (response.status === 201) {            
@@ -63,7 +86,19 @@ const BookingNow = () => {
       <NavigationBar />
       <SectionOrPageContainer>
         <h1>Book your slot now.</h1>
-        <BookingForm bookingFormData={bookingFormData} setBookingFormData={setBookingFormData} submitForm={submitForm} handleFormInput={handleFormInput} progress={progress}  />
+
+        <BookingForm 
+          bookingFormData={bookingFormData} 
+          attachment={attachment}
+          attachments={attachments}
+          setAttachment={setAttachment}
+          setAttachments={setAttachments}
+          setBookingFormData={setBookingFormData} 
+          submitForm={submitForm} 
+          handleFormInput={handleFormInput} 
+          handleFileInput={handleFileInput} 
+          progress={progress} 
+        />
       </SectionOrPageContainer>
       
       {/* Response message  */}

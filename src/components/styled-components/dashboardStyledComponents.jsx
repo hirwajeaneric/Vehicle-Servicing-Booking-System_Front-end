@@ -534,7 +534,7 @@ export const DataColumn = styled.div`
 
 export const AttachmentContainer = styled.div`
     padding: 2px;
-    background: gray;
+    background: #94b8b8;
     cursor: pointer;
     width: 100%;
     height: 300px;
