@@ -377,6 +377,32 @@ export const InnerContainer = styled.div`
     }
 `;
 
+export const FormContainer = styled.form`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;    
+    padding: 20px;
+    background: white;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+
+    @media (max-width: 1080px) {
+            
+    }
+
+    @media (max-width: 768px) {
+        
+    }
+
+    @media (max-width: 480px) {
+        
+    }
+`;
+
 export const TwoSidedContainer = styled.div`
     width: 100%;
     display: flex;
@@ -533,6 +559,9 @@ export const DataColumn = styled.div`
 `;
 
 export const AttachmentContainer = styled.div`
+    display: flex;
+    flex-direction: center;
+    align-items: center;
     padding: 2px;
     background: #94b8b8;
     cursor: pointer;
@@ -556,14 +585,13 @@ export const AttachmentContainer = styled.div`
     }
 `;
 
-export const CourseListContainer = styled.div`
+export const CommandButtons = styled.div`
     margin-top: 10px;
-    padding: 10px;
-    background: #f0f0f1;
+    display: flex;
+    flex-direction: flex-end;
+    align-items: center;
     width: 100%;
     font-size: 90%;
-    min-height: 300px;
-    height: 300px;
 
     @media (max-width: 1080px) {
             

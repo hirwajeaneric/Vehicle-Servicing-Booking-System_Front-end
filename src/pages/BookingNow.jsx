@@ -3,10 +3,10 @@ import { Helmet } from 'react-helmet-async'
 import NavigationBar from '../components/sections/NavigationBar';
 import { SectionOrPageContainer } from '../components/styled-components/pageStyledComponents';
 import BookingForm from '../components/sections/BookingForm';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
 import axios from 'axios';
 import Apis from '../utils/Apis';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -28,7 +28,6 @@ const BookingNow = () => {
     setBookingFormData({
       ...bookingFormData, [input.name]: input.value
     })
-    console.log(bookingFormData);
   };
 
   const handleFileInput = (e) => {
