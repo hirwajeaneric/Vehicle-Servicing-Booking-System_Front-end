@@ -1,6 +1,26 @@
 import { Box } from '@mui/material';
 import styled from 'styled-components';
 
+export const AdminPage = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 1080px) {
+            
+    }
+
+    @media (max-width: 768px) {
+        
+    }
+
+    @media (max-width: 480px) {
+        
+    }
+`;
+
 export const TopBar = styled.div`
     width: 100%;
     display: flex;
@@ -49,9 +69,23 @@ export const LowerBar = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding: 5px 90px;
+    padding: 8px 90px;
     background: #cce0ff;
-    gap: 10px;
+    gap: 20px;
+
+    a {
+        color: #003380;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: black;
+    }
+
+    a.active {
+        color: black;
+        text-decoration: underline;
+    }
 
     @media (max-width: 1080px) {
             
@@ -72,6 +106,7 @@ export const MainContainer = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    padding: 0px 90px;
     gap: 20px;
 
     @media (max-width: 1080px) {
@@ -115,7 +150,7 @@ export const OutLetSpace = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 67%;
+    width: 100%;
 
     @media (max-width: 1080px) {
             
@@ -163,29 +198,20 @@ export const LogoSpace = styled.div`
     }
 `;
 
-export const CourseDivision = styled.div`
+export const DashboardContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 69%;
-    padding: 20px 15px;
-    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    justify-content: flex-start
     gap: 20px;
-    border-radius: 8px;
-    background: white;
-    border: 1px solid #c2d1f0;
-
-    h3 {
-        font-weight: 600;
-    }
+    width: 100%;
 
     @media (max-width: 1080px) {
             
     }
 
     @media (max-width: 768px) {
-        width: 100%;
-        margin-bottom: 20px;
+        
     }
 
     @media (max-width: 480px) {
@@ -193,20 +219,17 @@ export const CourseDivision = styled.div`
     }
 `;
 
-export const LecturerDivision = styled.div`
+export const DashboardTitleBar = styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 29%;
-    padding: 20px 15px;
-    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    gap: 20px;
-    border-radius: 8px;
-    background: white;
-    border: 1px solid #c2d1f0;
-
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0px;
+    
     h3 {
         font-weight: 600;
+         
     }
 
     @media (max-width: 1080px) {
@@ -214,7 +237,7 @@ export const LecturerDivision = styled.div`
     }
 
     @media (max-width: 768px) {
-        width: 100%;
+        
     }
 
     @media (max-width: 480px) {

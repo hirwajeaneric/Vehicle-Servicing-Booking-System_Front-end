@@ -17,6 +17,7 @@ import RequestPasswordReset from '../pages/auth/RequestPasswordReset';
 import Admin from '../pages/users/Admin/Index';
 import AdminHome from '../pages/users/Admin/Home';
 import Report from '../pages/users/Admin/Report';
+import Bookings from '../pages/users/Admin/Bookings';
 import Schedules from '../pages/users/Admin/Schedules';
 import ScheduleDetails from '../pages/users/Admin/ScheduleDetails';
 import AdminSettings from '../pages/users/Admin/Settings';
@@ -77,6 +78,7 @@ function App() {
           {/* Admin Routes */}
           <Route path={'admin'} element={localStorage.getItem("admnTkn") ? <Admin /> : <Navigate replace to='/admin/auth/signin' />} >
             <Route path='' element={localStorage.getItem("admnTkn") ? <AdminHome /> : <Navigate replace to='/admin/auth/signin' />} />
+            <Route path='bookings' element={localStorage.getItem("admnTkn") ? <Bookings /> : <Navigate replace to='/admin/auth/signin' />} />
             <Route path='settings' element={localStorage.getItem("admnTkn") ? <AdminSettings /> : <Navigate replace to='/admin/auth/signin' />} />
             <Route path='request/:id' element={localStorage.getItem("admnTkn") ? <AdminBookingDetails /> : <Navigate replace to='/admin/auth/signin' />} />
             <Route path='report-preview' element={localStorage.getItem("admnTkn") ? <Report /> : <Navigate replace to='/admin/auth/signin' />} />

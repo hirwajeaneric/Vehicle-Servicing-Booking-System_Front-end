@@ -1,12 +1,12 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-import { LogoSpace, LowerBar, MainContainer, OutLetSpace, SideNavigationBar, ToBar, TopBar, UpperBar } from '../../../components/styled-components/dashboardStyledComponents';
+import { NavLink, Outlet } from 'react-router-dom';
+import { LogoSpace, LowerBar, MainContainer, OutLetSpace, TopBar, UpperBar, AdminPage } from '../../../components/styled-components/dashboardStyledComponents';
 import { CarCrash } from '@mui/icons-material';
 
 
 const Index = () => {
   return (
-    <div>
+    <AdminPage>
         <TopBar>
           <UpperBar>
             <LogoSpace>
@@ -14,18 +14,18 @@ const Index = () => {
             </LogoSpace>
           </UpperBar>
           <LowerBar>
-            
+            <NavLink to={'/admin/'}>Dashbaord</NavLink>
+            <NavLink to={'/admin/bookings'}>Bookings</NavLink>
+            <NavLink to={'/admin/schedules'}>Schedules</NavLink>
+            <NavLink to={'/admin/settings'}>Settings</NavLink>
           </LowerBar>
         </TopBar>
         <MainContainer>
-          <SideNavigationBar>
-
-          </SideNavigationBar>
           <OutLetSpace>
             <Outlet />
           </OutLetSpace>
         </MainContainer>
-    </div>
+    </AdminPage>
   )
 }
 
