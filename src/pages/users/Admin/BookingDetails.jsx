@@ -1,7 +1,7 @@
 import React from 'react'
 import { Page } from '../../../components/styled-components/pageStyledComponents'
 import { Helmet } from 'react-helmet-async'
-import { DashboardContentContainer, DashboardTitleBar } from '../../../components/styled-components/dashboardStyledComponents'
+import { DashboardContentContainer, DashboardTitleBar, InnerContainer } from '../../../components/styled-components/dashboardStyledComponents'
 
 const Report = () => {
   return (
@@ -14,6 +14,10 @@ const Report = () => {
         <DashboardTitleBar>
           <h3>Booking details</h3>
         </DashboardTitleBar>
+        <InnerContainer>
+          <h3>Recent bookings</h3>
+          
+        </InnerContainer>
       </DashboardContentContainer>
     </>
   )

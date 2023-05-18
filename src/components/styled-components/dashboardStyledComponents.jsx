@@ -229,7 +229,7 @@ export const DashboardTitleBar = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 20px 0px 10px;
+    padding: 30px 0px 10px;
     
     h3 {
         font-weight: 600;
@@ -377,16 +377,12 @@ export const InnerContainer = styled.div`
     }
 `;
 
-export const CourseManagementContainer = styled.div`
+export const TwoSidedContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: flex-start;
-    flex-wrap: nowrap;
-    // gap: 20px;
-    border: 1px solid #c2d1f0;
-    border-radius: 8px;
+    gap: 20px;
 
     @media (max-width: 1080px) {
             
@@ -405,13 +401,17 @@ export const CourseManagementContainer = styled.div`
     }
 `;
 
-export const CustomTableContainer = styled.div`
-    borderRadius: 8px;
-    width: 100%;
-
-    h4 {
-        padding: 15px 15px 0;
-    }
+export const SideMenu = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 30%;    
+    padding: 20px;
+    background: white;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
 
     @media (max-width: 1080px) {
             
