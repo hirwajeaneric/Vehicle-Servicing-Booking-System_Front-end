@@ -19,13 +19,11 @@ const BookingNow = () => {
   const [progress, setProgress] = useState({ value: '', disabled: false});
   const [open, setOpen] = useState(false);
   const [responseMessage, setResponseMessage] = useState({ message: '', severity: ''});
-  const [userLocalInfo, setUserLocalInfo] = useState({});
 
   useEffect(() => {
-    setUserLocalInfo(JSON.parse(localStorage.getItem('cltInfo')));
-    console.log(userLocalInfo);
+    const userLocalInfo = JSON.parse(localStorage.getItem('cltInfo'));
     setBookingFormData({...bookingFormData, email: userLocalInfo.email, fullName: userLocalInfo.fullName, phone: userLocalInfo.phone })
-  }, [bookingFormData, userLocalInfo])
+  }, [])
   
 
   const handleClose = (event, reason) => {
@@ -71,6 +69,7 @@ const BookingNow = () => {
             setOpen(true);  
           }
         }, 2000); 
+        window.location.replace('/client');
       })
       .catch(error => {
         if (error.response && error.response.status >= 400 && error.response.status <= 500) {
