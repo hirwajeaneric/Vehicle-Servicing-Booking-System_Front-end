@@ -9,7 +9,7 @@ export default function Schedules() {
         <title>Schedules - Administrator</title>
         <meta name="description" content="Administrator's report preview page."/> 
       </Helmet>
-      <DashboardContentContainer>
+      <DashboardContentContainer >
         <DashboardTitleBar>
           <h3>Schedules</h3>
         </DashboardTitleBar>

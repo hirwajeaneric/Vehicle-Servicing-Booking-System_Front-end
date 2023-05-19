@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Helmet } from 'react-helmet-async'
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { AttachmentContainer, CommandButtons, DashboardContentContainer, DashboardTitleBar, DataColumn, FirstPart, FormContainer, InnerContainer, LeftSide, RightSide, SecondPart, ThirdPart } from '../../../components/styled-components/dashboardStyledComponents'
 import axios from 'axios'
 import Apis from '../../../utils/Apis'
@@ -16,7 +16,7 @@ const Report = () => {
   const params = useParams();
   const [bookingDetails, setBookingDetails] = useState({});
   const [displayAttachment, setDisplayAttachments] = useState('');
-  const [updates, setUpdates] = useState({ status: '', workStatus: '' })
+  const [updates, setUpdates] = useState({ status: '', workStatus: '', temporalSlotNumber: '', startHour: '', serviceDay: '' })
 
   const [progress, setProgress] = useState({ value: '', disabled: false});
   const [open, setOpen] = useState(false);
@@ -30,7 +30,7 @@ const Report = () => {
     axios.get(`${Apis.bookingApis.findById}${params.id}`)
     .then(response => {
       setBookingDetails(response.data.booking);
-      setDisplayAttachments(bookingDetails.photos[0]);
+      setDisplayAttachments(response.data.booking.photos[0]);
     })
     .catch(error => console.log("Error: "+error));
   },[bookingDetails.photos, params.id]);
@@ -51,11 +51,16 @@ const Report = () => {
       bookingDetails.workStatus = updates.workStatus;
     }
 
+    if (updates.temporalSlotNumber) {bookingDetails.temporalSlotNumber = updates.temporalSlotNumber};
+    if (updates.startHour) { bookingDetails.startHour = updates.startHour };
+    if (updates.serviceDay) {bookingDetails.serviceDay = updates.serviceDay};
+    bookingDetails.photos = [];
+
     setProgress({ value: 'CONFIRMING ...', disabled: true });
     axios.put(`${Apis.bookingApis.update}${params.id}`, bookingDetails)
     .then(response => {
       setTimeout(()=>{
-        if (response.status === 201) {            
+        if (response.status === 200 || response.status === 201) {            
           setProgress({ value: '', disabled: false });
           setResponseMessage({message: response.data.message, severity: 'success'});
           setOpen(true);  
@@ -115,19 +120,38 @@ const Report = () => {
           <SecondPart>
             <DataColumn>
               <label htmlFor="submittedOn">Submitted on</label>
-              <p>{bookingDetails.submittedOn}</p>
+              <p>{new Date(bookingDetails.submittedOn).toLocaleDateString()}</p>
             </DataColumn>
-            <DataColumn>
-              <label htmlFor="serviceDay">Service day</label>
-              <p>{bookingDetails.serviceDay}</p>
+            {/* Updatable element */}
+            <DataColumn style={{ flexDirection: 'row'}}>
+              <DataColumn>
+                <label htmlFor="serviceDay">Service day</label>
+                <p>{new Date(bookingDetails.serviceDay).toLocaleDateString()}</p>
+              </DataColumn>
+              <DataColumn>
+                <label htmlFor="UpdateServiceDay">Update</label>
+                <input type='date' id='UpdateserviceDay' name='serviceDay' value={updates.serviceDay || ''} onChange={handleFormInput} />
+              </DataColumn>
             </DataColumn>
-            <DataColumn>
-              <label htmlFor="startHour">Start hour</label>
-              <p>{bookingDetails.startHour} h</p>
+            <DataColumn style={{ flexDirection: 'row'}}>
+              <DataColumn>
+                <label htmlFor="startHour">Start hour</label>
+                <p>{bookingDetails.startHour} h</p>
+              </DataColumn>
+              <DataColumn>
+                <label htmlFor="UpdateStartHour">Update</label>
+                <input type='text' id='UpdateStartHour' name='startHour' value={updates.startHour || ''} onChange={handleFormInput} />
+              </DataColumn>
             </DataColumn>
-            <DataColumn>
-              <label htmlFor="temporalSlotNumber">Slot number</label>
-              <p>{bookingDetails.temporalSlotNumber}</p>
+            <DataColumn style={{ flexDirection: 'row'}}>
+              <DataColumn>
+                <label htmlFor="temporalSlotNumber">Slot number</label>
+                <p>{bookingDetails.temporalSlotNumber}</p>
+              </DataColumn>
+              <DataColumn>
+                <label htmlFor="temporalSlotNumberUpdate">Update</label>
+                <input type='text' id='temporalSlotNumberUpdate' name='temporalSlotNumber' value={updates.temporalSlotNumber || ''} onChange={handleFormInput} />
+              </DataColumn>
             </DataColumn>
             <DataColumn style={{ flexDirection: 'row'}}>
               <DataColumn>
@@ -135,8 +159,8 @@ const Report = () => {
                 <p>{bookingDetails.status}</p>
               </DataColumn>
               <DataColumn>
-                <label htmlFor="status">Update</label>
-                <select id='status' name={"status"} onChange={handleFormInput}>
+                <label htmlFor="statusUpdate">Update</label>
+                <select id='statusUpdate' name={"status"} onChange={handleFormInput}>
                   <option value={''}>Choose status</option>
                   <option value={'Pending'}>Pending</option>
                   <option value={'Confirmed'}>Confirmed</option>
@@ -151,8 +175,8 @@ const Report = () => {
                 <p>{bookingDetails.workStatus}</p>
               </DataColumn>
               <DataColumn>
-                <label htmlFor="workStatus">Update</label>
-                <select id='workStatus' name={"workStatus"} onChange={handleFormInput}>
+                <label htmlFor="workStatusUpdate">Update</label>
+                <select id='workStatusUpdate' name={"workStatus"} onChange={handleFormInput}>
                   <option value={''}>Choose work progress</option>
                   <option value={'Todo'}>Todo</option>
                   <option value={'In progress'}>In progress</option>
@@ -174,7 +198,8 @@ const Report = () => {
               </AttachmentContainer>
             </DataColumn>
             <CommandButtons>
-              <Button type='submit' variant='contained' color='primary' size='small'>CONFIRM</Button>
+              {!progress.disabled && <Button type='submit' variant='contained' size='small' color='primary'>CONFIRM </Button>}
+              {progress.disabled && <Button type='submit' variant='contained' size='small' color='primary' disabled>{progress.value}</Button>}
             </CommandButtons>
           </ThirdPart>
         </FormContainer>

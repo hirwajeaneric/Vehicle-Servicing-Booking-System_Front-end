@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import NavigationBar from '../components/sections/NavigationBar';
 import { SectionOrPageContainer } from '../components/styled-components/pageStyledComponents';
@@ -19,6 +19,15 @@ const BookingNow = () => {
   const [progress, setProgress] = useState({ value: '', disabled: false});
   const [open, setOpen] = useState(false);
   const [responseMessage, setResponseMessage] = useState({ message: '', severity: ''});
+  const [userLocalInfo, setUserLocalInfo] = useState({});
+
+  useEffect(() => {
+    setUserLocalInfo(JSON.parse(localStorage.getItem('cltInfo')));
+    console.log(userLocalInfo);
+    setBookingFormData({...bookingFormData, email: userLocalInfo.email, fullName: userLocalInfo.fullName, phone: userLocalInfo.phone })
+  }, [bookingFormData, userLocalInfo])
+  
+
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') return;
     setOpen(false);
@@ -32,11 +41,7 @@ const BookingNow = () => {
 
   const handleFileInput = (e) => {
     setAttachment(e.target.files[0]);
-    console.log(e.target.files[0])
-    // if (e.target.length > 1) {
-    //   setAttachments()
-    // }
-    // setBookingFormData({...bookingFormData, photos: e.target.file});
+    console.log(e.target.files[0]);
   }
 
   const submitForm = (e) => {

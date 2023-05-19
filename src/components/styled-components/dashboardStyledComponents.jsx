@@ -472,7 +472,7 @@ export const FirstPart = styled.div`
     }
 
     @media (max-width: 768px) {
-     
+        width: 100%;
     }
 
     @media (max-width: 480px) {
@@ -496,7 +496,7 @@ export const SecondPart = styled.div`
     }
 
     @media (max-width: 768px) {
-     
+        width: 100%;
     }
 
     @media (max-width: 480px) {
@@ -520,7 +520,7 @@ export const ThirdPart = styled.div`
     }
 
     @media (max-width: 768px) {
-     
+        width: 100%;
     }
 
     @media (max-width: 480px) {
@@ -539,6 +539,13 @@ export const DataColumn = styled.div`
         font-size: 90%;
         color: gray;
         margin-bottom: 4px;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 3px;
+        border: 1px solid gray;
+        border-radius: 4px;
     }
 
     @media (max-width: 1080px) {

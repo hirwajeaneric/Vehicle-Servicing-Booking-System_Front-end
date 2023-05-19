@@ -28,14 +28,14 @@ const LandingPage = () => {
           </div>
         </BannerContent>
       </Banner>
-      <Services>
+      {/* <Services>
         <h2>Our services</h2>
         <ServicesContainer>
           <AService>
             
           </AService>
         </ServicesContainer>
-      </Services>
+      </Services> */}
     </div>
   )
 }

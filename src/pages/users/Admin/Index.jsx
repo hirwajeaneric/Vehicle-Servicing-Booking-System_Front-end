@@ -16,7 +16,6 @@ const Index = () => {
           <LowerBar>
             <NavLink to={'/admin/'}>Dashbaord</NavLink>
             <NavLink to={'/admin/bookings'}>Bookings</NavLink>
-            <NavLink to={'/admin/schedules'}>Schedules</NavLink>
             <NavLink to={'/admin/settings'}>Settings</NavLink>
           </LowerBar>
         </TopBar>
