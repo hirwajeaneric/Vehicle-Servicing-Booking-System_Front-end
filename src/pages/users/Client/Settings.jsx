@@ -56,7 +56,7 @@ export default function Settings() {
   // Send password reset request
   const requestPasswordReset = () => {
     setProgress2({ value: 'SENDING REQUEST ...', disabled: true });
-    axios.post(Apis.userApis.requestPasswordReset, {email: user.email})
+    axios.post(Apis.userApis.requestPasswordReset, {email: user.email, role: 'client'})
     .then(response => {
       setTimeout(()=>{
         if (response.status === 200 || response.status === 201) {            
