@@ -542,7 +542,10 @@ export const DataColumn = styled.div`
     }
 
     input, select {
-        width: 50%;
+        width: 100%;
+        padding: 3px;
+        border: 1px solid gray;
+        border-radius: 4px;
     }
 
     @media (max-width: 1080px) {

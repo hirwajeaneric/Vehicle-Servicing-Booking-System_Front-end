@@ -58,11 +58,15 @@ const Report = () => {
       bookingDetails.workStatus = updates.workStatus;
     }
 
+    if (updates.temporalSlotNumber) {bookingDetails.temporalSlotNumber = updates.temporalSlotNumber};
+    if (updates.startHour) { bookingDetails.startHour = updates.startHour };
+    if (updates.serviceDay) {bookingDetails.serviceDay = updates.serviceDay};
+
     setProgress({ value: 'CONFIRMING ...', disabled: true });
     axios.put(`${Apis.bookingApis.update}${params.id}`, bookingDetails)
     .then(response => {
       setTimeout(()=>{
-        if (response.status === 201) {            
+        if (response.status === 200 || response.status === 201) {            
           setProgress({ value: '', disabled: false });
           setResponseMessage({message: response.data.message, severity: 'success'});
           setOpen(true);  
@@ -122,16 +126,17 @@ const Report = () => {
           <SecondPart>
             <DataColumn>
               <label htmlFor="submittedOn">Submitted on</label>
-              <p>{bookingDetails.submittedOn}</p>
+              <p>{new Date(bookingDetails.submittedOn).toLocaleDateString()}</p>
             </DataColumn>
+            {/* Updatable element */}
             <DataColumn style={{ flexDirection: 'row'}}>
               <DataColumn>
                 <label htmlFor="serviceDay">Service day</label>
-                <p>{bookingDetails.serviceDay}</p>
+                <p>{new Date(bookingDetails.serviceDay).toLocaleDateString()}</p>
               </DataColumn>
               <DataColumn>
-                <label htmlFor="serviceDay">Service day</label>
-                <input type='date' id='serviceDay' name='serviceDay' value={updates.serviceDay || ''} onChange={handleFormInput} />
+                <label htmlFor="UpdateServiceDay">Update</label>
+                <input type='date' id='UpdateserviceDay' name='serviceDay' value={updates.serviceDay || ''} onChange={handleFormInput} />
               </DataColumn>
             </DataColumn>
             <DataColumn style={{ flexDirection: 'row'}}>
@@ -140,18 +145,18 @@ const Report = () => {
                 <p>{bookingDetails.startHour} h</p>
               </DataColumn>
               <DataColumn>
-                <label htmlFor="startHour">Update</label>
-                <input type='text' id='startHour' name='startHour' value={updates.startHour || ''} onChange={handleFormInput} />
+                <label htmlFor="UpdateStartHour">Update</label>
+                <input type='text' id='UpdateStartHour' name='startHour' value={updates.startHour || ''} onChange={handleFormInput} />
               </DataColumn>
             </DataColumn>
             <DataColumn style={{ flexDirection: 'row'}}>
               <DataColumn>
                 <label htmlFor="temporalSlotNumber">Slot number</label>
-                <p>{updates.temporalSlotNumber || ''} onChange={handleFormInput}</p>
+                <p>{bookingDetails.temporalSlotNumber}</p>
               </DataColumn>
               <DataColumn>
                 <label htmlFor="temporalSlotNumberUpdate">Update</label>
-                <input type='text' id='temporalSlotNumber' name='temporalSlotNumber' value={updates.temporalSlotNumber || ''} onChange={handleFormInput} />
+                <input type='text' id='temporalSlotNumberUpdate' name='temporalSlotNumber' value={updates.temporalSlotNumber || ''} onChange={handleFormInput} />
               </DataColumn>
             </DataColumn>
             <DataColumn style={{ flexDirection: 'row'}}>
@@ -160,8 +165,8 @@ const Report = () => {
                 <p>{bookingDetails.status}</p>
               </DataColumn>
               <DataColumn>
-                <label htmlFor="status">Update</label>
-                <select id='status' name={"status"} onChange={handleFormInput}>
+                <label htmlFor="statusUpdate">Update</label>
+                <select id='statusUpdate' name={"status"} onChange={handleFormInput}>
                   <option value={''}>Choose status</option>
                   <option value={'Pending'}>Pending</option>
                   <option value={'Confirmed'}>Confirmed</option>
@@ -176,8 +181,8 @@ const Report = () => {
                 <p>{bookingDetails.workStatus}</p>
               </DataColumn>
               <DataColumn>
-                <label htmlFor="workStatus">Update</label>
-                <select id='workStatus' name={"workStatus"} onChange={handleFormInput}>
+                <label htmlFor="workStatusUpdate">Update</label>
+                <select id='workStatusUpdate' name={"workStatus"} onChange={handleFormInput}>
                   <option value={''}>Choose work progress</option>
                   <option value={'Todo'}>Todo</option>
                   <option value={'In progress'}>In progress</option>
@@ -199,7 +204,8 @@ const Report = () => {
               </AttachmentContainer>
             </DataColumn>
             <CommandButtons>
-              <Button type='submit' variant='contained' color='primary' size='small'>CONFIRM</Button>
+              {!progress.disabled && <Button type='submit' variant='contained' size='small' color='primary'>CONFIRM </Button>}
+              {progress.disabled && <Button type='submit' variant='contained' size='small' color='primary' disabled>{progress.value}</Button>}
             </CommandButtons>
           </ThirdPart>
         </FormContainer>
