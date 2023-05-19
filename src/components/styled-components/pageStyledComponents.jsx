@@ -8,6 +8,7 @@ export const SectionOrPageContainer = styled.div`
     align-items: center;
     justify-content: center;
     padding: 70px 90px;
+    
 
     @media (max-width: 1080px) {
             
@@ -46,7 +47,7 @@ export const BookingFormContainer = styled.div`
 
 export const Page = styled.div`
     width: 100%;
-    margin-top: 40px;
+    // margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,29 +113,22 @@ export const PageContent = styled.div`
     }
 `;
 
-export const CourseDivision = styled.div`
+export const ListOfBookings = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
-    width: 69%;
-    padding: 20px 15px;
-    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    justify-content: flex-start;
     gap: 20px;
-    border-radius: 8px;
-    background: white;
-    border: 1px solid #c2d1f0;
-
-    h3 {
-        font-weight: 600;
-    }
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 40px;
 
     @media (max-width: 1080px) {
             
     }
 
     @media (max-width: 768px) {
-        width: 100%;
-        margin-bottom: 20px;
+        margin-top: 20px;
     }
 
     @media (max-width: 480px) {
@@ -142,21 +136,16 @@ export const CourseDivision = styled.div`
     }
 `;
 
-export const LecturerDivision = styled.div`
+export const ABooking = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 29%;
-    padding: 20px 15px;
-    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    gap: 20px;
+    align-items: center;
+    width: 28%;
+    padding: 10px 10px;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     border-radius: 8px;
     background: white;
-    border: 1px solid #c2d1f0;
-
-    h3 {
-        font-weight: 600;
-    }
+    height: 100px;
 
     @media (max-width: 1080px) {
             

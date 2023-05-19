@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Helmet } from 'react-helmet-async'
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { AttachmentContainer, CommandButtons, DashboardContentContainer, DashboardTitleBar, DataColumn, FirstPart, FormContainer, InnerContainer, LeftSide, RightSide, SecondPart, ThirdPart } from '../../../components/styled-components/dashboardStyledComponents'
 import axios from 'axios'
 import Apis from '../../../utils/Apis'
@@ -42,12 +42,12 @@ const Report = () => {
     console.log(updates);
   };
 
-  const handleMainFormInput = ({currentTarget: input}) => { 
-    setBookingDetails({
-      ...bookingDetails, [input.name]: input.value
-    })
-    console.log(bookingDetails);
-  };
+  // const handleMainFormInput = ({currentTarget: input}) => { 
+  //   setBookingDetails({
+  //     ...bookingDetails, [input.name]: input.value
+  //   })
+  //   console.log(bookingDetails);
+  // };
 
   const updateBooking = (e) => {
     e.preventDefault();

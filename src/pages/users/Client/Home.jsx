@@ -1,5 +1,5 @@
 import React from 'react'
-import { Page } from '../../../components/styled-components/pageStyledComponents'
+import { ABooking, ListOfBookings, Page, SectionOrPageContainer } from '../../../components/styled-components/pageStyledComponents'
 import { Helmet } from 'react-helmet-async'
 
 export default function NewBooking() {
@@ -9,7 +9,14 @@ export default function NewBooking() {
         <title>Your VSBA account status</title>
         <meta name="description" content="User home account in their Vehicle Servicing Booking Application."/> 
       </Helmet>
-      My account
+      <SectionOrPageContainer>
+        <h1 style={{ textAlign: 'left' }}>My bookings</h1>
+        <ListOfBookings>
+          <ABooking>
+            
+          </ABooking>
+        </ListOfBookings>
+      </SectionOrPageContainer>
     </Page>
   )
 }
