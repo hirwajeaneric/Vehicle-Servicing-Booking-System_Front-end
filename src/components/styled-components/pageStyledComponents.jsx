@@ -51,8 +51,9 @@ export const Page = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 90px;
+    justify-content: flex-start;
+    background: #f0f5f5;
+    min-height: 100vh;
 
     @media (max-width: 1080px) {
             
@@ -137,15 +138,39 @@ export const ListOfBookings = styled.div`
 `;
 
 export const ABooking = styled.div`
+    border-top: 4px solid blue;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 28%;
     padding: 10px 10px;
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 8px;
+    border-radius: 0px 0px 8px 8px;
     background: white;
-    height: 100px;
+
+    p {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 90%;
+        margin-bottom: 5px;
+        
+        em {
+            color: gray;
+            text-align: right;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+
+        svg {
+            font-size: 150%;
+        }
+    }
 
     @media (max-width: 1080px) {
             

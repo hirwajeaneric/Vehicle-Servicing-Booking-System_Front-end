@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ABooking, ListOfBookings, Page, SectionOrPageContainer } from '../../../components/styled-components/pageStyledComponents'
 import { Helmet } from 'react-helmet-async'
+import axios from 'axios';
+import Apis from '../../../utils/Apis';
+import { FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 export default function NewBooking() {
+  const [bookings, setBookings] = useState([]);
+
+  useEffect(() => {
+    const userLocalInfo = JSON.parse(localStorage.getItem('cltInfo'));
+    axios.get(Apis.bookingApis.list)
+    .then(response => {
+      var allBookings = response.data.bookings;
+      var myBookings = allBookings.filter((booking)=>{ return booking.email === userLocalInfo.email})
+      setBookings(myBookings);
+    })
+    .catch(error => console.log(error))
+  },[])
+
   return (
     <Page>
       <Helmet>
@@ -12,9 +29,17 @@ export default function NewBooking() {
       <SectionOrPageContainer>
         <h1 style={{ textAlign: 'left' }}>My bookings</h1>
         <ListOfBookings>
-          <ABooking>
-            
-          </ABooking>
+          {bookings && bookings.map((booking, index) => (
+            <ABooking key={index} >
+              <p><span>Booked on:</span><em>{new Date(booking.submittedOn).toUTCString()}</em></p>
+              <p><span>Type of Service: </span><em>{booking.typeOfService}</em></p>
+              <p><span>Status:</span><em>{booking.status}</em></p>
+              <p><span>Client confirmation:</span><em>{booking.clientConfirmation}</em></p>
+              <p><span>Work progress: </span><em style={{ color: 'white', padding: '2px 10px', borderRadius: '10px' ,backgroundColor: booking.workStatus === 'Ended' ? 'green' : booking.workStatus === 'In progress' ? 'blue' : 'gray'}}>{booking.workStatus}</em></p>
+              <Link to={`/client/booking/${booking._id}`}><FaArrowRight /></Link>
+            </ABooking>
+          ))}
+          {!bookings && <p>No available bookings</p>}
         </ListOfBookings>
       </SectionOrPageContainer>
     </Page>

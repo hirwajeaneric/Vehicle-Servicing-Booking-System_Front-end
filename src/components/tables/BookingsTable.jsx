@@ -11,14 +11,14 @@ const columns = [
     hide:true
   },
   {
-    field: 'fullName',
-    headerName: 'Full Name',
-    width: 200,
+    field: 'startHour',
+    headerName: 'Start hour',
+    width: 90,
   },
   {
-    field: 'phone',
-    headerName: 'Phone',
-    width: 120,
+    field: 'serviceDay',
+    headerName: 'Servicing Day',
+    width: 130,
   },
   {
     field: 'vehicleType',
@@ -43,6 +43,11 @@ const columns = [
   {
     field: 'status',
     headerName: 'Status',
+    width: 100,
+  },
+  {
+    field: 'workStatus',
+    headerName: 'Progress',
     width: 100,
   },
   {
@@ -71,6 +76,9 @@ export const TableStyles = {
 var rows = [];
 
 export default function BookingsTable({data}) {
+  data.forEach(element => {
+    element.serviceDay = new Date(element.serviceDay).toDateString();
+  })
   rows = data;
   
   return (

@@ -10,8 +10,7 @@ import BookingsTable from '../../../components/tables/BookingsTable';
 
 const Home = () => {
   const [listOfBookings, setListOfBookings] = useState([]);
-  const [stats, setStats] = useState({ accepted: 0, completed: 0 })
-  const [schedules, setSchedules] = useState([]);
+  const [stats, setStats] = useState({ accepted: 0, completed: 0, inProgress: 0 })
 
   useEffect(() => {
     // Fetch bookings
@@ -19,27 +18,22 @@ const Home = () => {
     .then(response => {
       let confirmed = [];
       let completed = [];
+      let inProgress = [];
       response.data.bookings.forEach(element => { 
         element.id = element._id 
         if (element.status === 'Confirmed') {
           confirmed.push(element);
-        } else if (element.workStatus === 'Ended') {
+        } 
+        if (element.workStatus === 'Ended') {
           completed.push(element);
+        } 
+        if (element.workStatus === 'In progress') {
+          inProgress.push(element);
         }
       })
-      setStats({ ...stats, accepted: confirmed.length, completed: completed.length })
+      setStats({ ...stats, accepted: confirmed.length, completed: completed.length, inProgress: inProgress.length })
       response.data.bookings.sort((a, b) => new Date(b.submittedOn) - new Date(a.submittedOn))
       setListOfBookings(response.data.bookings);
-    })
-    .catch(error => console.log('Error: '+error));
-  },[])
-
-  useEffect(()=>{
-    // Fetch schedules
-    axios.get(Apis.scheduleApis.list)
-    .then(response => {
-      setSchedules(response.data.schedules);
-      setStats({ ...stats, schedules: response.data.schedules.length })
     })
     .catch(error => console.log('Error: '+error));
   },[])
@@ -72,17 +66,17 @@ const Home = () => {
           </AStatistic>
           <AStatistic>
             <div>
-              <h5>Completed</h5>
-              <h4>{stats.completed}</h4>
+              <h5>In Progress</h5>
+              <h4>{stats.inProgress}</h4>
             </div>
-            <MdOutlineIncompleteCircle style={{ background: '#0066ff' }} />
+            <MdOutlineIncompleteCircle style={{ background: ' #b300b3' }} />
           </AStatistic>
           <AStatistic>
             <div>
-              <h5>Schedules</h5>
-              <h4>{schedules.length}</h4>
+              <h5>Completed</h5>
+              <h4>{stats.completed}</h4>
             </div>
-            <AiOutlineSchedule style={{ background: ' #b300b3' }} />
+            <AiOutlineSchedule style={{ background: '#0066ff' }} />
           </AStatistic>
         </StatisticsContainer>
 
