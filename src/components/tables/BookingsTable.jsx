@@ -91,7 +91,7 @@ export default function BookingsTable({data}) {
         rowsPerPageOptions={[5]}
         disableSelectionOnClick
         experimentalFeatures={{newEditingApi: true}}
-        // components={{Toolbar: CustomToolbar}}
+        components={{Toolbar: CustomToolbar}}
       />
     </Box>
       
