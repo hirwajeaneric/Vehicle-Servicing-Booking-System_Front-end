@@ -69,6 +69,7 @@ const BookingNow = () => {
             setOpen(true);  
           }
         }, 2000); 
+        window.location.replace('/client');
       })
       .catch(error => {
         if (error.response && error.response.status >= 400 && error.response.status <= 500) {
