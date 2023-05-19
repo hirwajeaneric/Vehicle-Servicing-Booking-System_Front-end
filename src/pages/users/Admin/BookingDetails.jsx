@@ -42,13 +42,6 @@ const Report = () => {
     console.log(updates);
   };
 
-  // const handleMainFormInput = ({currentTarget: input}) => { 
-  //   setBookingDetails({
-  //     ...bookingDetails, [input.name]: input.value
-  //   })
-  //   console.log(bookingDetails);
-  // };
-
   const updateBooking = (e) => {
     e.preventDefault();
 
