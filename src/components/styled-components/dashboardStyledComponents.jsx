@@ -472,7 +472,7 @@ export const FirstPart = styled.div`
     }
 
     @media (max-width: 768px) {
-     
+        width: 100%;
     }
 
     @media (max-width: 480px) {
@@ -496,7 +496,7 @@ export const SecondPart = styled.div`
     }
 
     @media (max-width: 768px) {
-     
+        width: 100%;
     }
 
     @media (max-width: 480px) {
@@ -520,7 +520,7 @@ export const ThirdPart = styled.div`
     }
 
     @media (max-width: 768px) {
-     
+        width: 100%;
     }
 
     @media (max-width: 480px) {

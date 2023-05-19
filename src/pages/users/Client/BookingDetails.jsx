@@ -68,7 +68,7 @@ const Report = () => {
       </Helmet>
       <SectionOrPageContainer>
         <h1 style={{ textAlign: 'left' }}>My bookings</h1>
-        <FormContainer onSubmit={updateBooking} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <FormContainer onSubmit={updateBooking} style={{ flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap' }}>
           <FirstPart>
             <DataColumn>
               <label htmlFor="fullName">Full name</label>
