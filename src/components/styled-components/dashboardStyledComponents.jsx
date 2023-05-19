@@ -572,11 +572,12 @@ export const AttachmentContainer = styled.div`
     padding: 2px;
     background: #94b8b8;
     cursor: pointer;
-    width: 100%;
-    height: 300px;
 
-    img {
-        width: 100%;
+    a { 
+        img {
+            height: 300px;
+            width: auto;
+        }
     }
 
     @media (max-width: 1080px) {
@@ -584,7 +585,12 @@ export const AttachmentContainer = styled.div`
     }
 
     @media (max-width: 768px) {
-        
+        a { 
+            img {
+                height: auto;
+                width: 100%;
+            }
+        }   
     }
 
     @media (max-width: 480px) {

@@ -37,6 +37,9 @@ let Apis = {
         findById: `${mainAddress}/schedule/findById?id=`,
         update: `${mainAddress}/schedule/update?id=`,
         delete: `${mainAddress}/schedule/delete?id=`,
+    },
+    files: {
+        file: `${mainAddress}/files/`,
     }
 }
 

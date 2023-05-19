@@ -143,7 +143,7 @@ const Report = () => {
               <label htmlFor="submittedOn">Attachment</label>
               <AttachmentContainer>
               {displayAttachment ?
-                <a target='about_blank' href={`http://localhost:5151/api/v1/vsb/files/${displayAttachment}`}><img src={`http://localhost:5151/api/v1/vsb/files/${displayAttachment}`} alt='' /></a>
+                <a target='about_blank' href={`${Apis.files.file}${displayAttachment}`}><img src={`${Apis.files.file}/${displayAttachment}`} alt='' /></a>
               :
               <p style={{ textAlign: 'center' }}>No attachment available</p>
               }
