@@ -39,7 +39,10 @@ export default function NewBooking() {
               <Link to={`/client/booking/${booking._id}`}><FaArrowRight /></Link>
             </ABooking>
           ))}
-          {!bookings && <p>No available bookings</p>}
+          {bookings.length === 0 && 
+            <div style={{ width: '100%'}}>
+              <p style={{ textAlign: 'center'}}>No available bookings.<Link to={'/book-now'}>Book now.</Link></p>
+            </div>}
         </ListOfBookings>
       </SectionOrPageContainer>
     </Page>

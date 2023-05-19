@@ -38,6 +38,7 @@ const Report = () => {
     e.preventDefault();
 
     if (updates.clientConfirmation) {bookingDetails.clientConfirmation = updates.clientConfirmation};
+    bookingDetails.photos = [];
 
     setProgress({ value: 'CONFIRMING ...', disabled: true });
     axios.put(`${Apis.bookingApis.update}${params.id}`, bookingDetails)

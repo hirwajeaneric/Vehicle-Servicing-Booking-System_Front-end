@@ -27,7 +27,7 @@ export default function NavigationBar() {
       <ul>
         {localStorage.getItem('cltTkn') ?
           <>
-            <li><NavLink to={'/client/'}>My account</NavLink></li>
+            <li><NavLink to={'/client/'}>My Bookings</NavLink></li>
             <li><NavLink to={'/client/settings'}>Settings</NavLink></li> 
           </>
         :
@@ -43,7 +43,7 @@ export default function NavigationBar() {
           <li><NavLink onClick={toggleMenu} to={'/book-now'}>Book now</NavLink></li>
           {localStorage.getItem('cltTkn') ?
             <>
-              <li><NavLink onClick={toggleMenu} to={'/client/'}>My account</NavLink></li>
+              <li><NavLink onClick={toggleMenu} to={'/client/'}>My Bookings</NavLink></li>
               <li><NavLink onClick={toggleMenu} to={'/client/settings'}>Settings</NavLink></li> 
             </>
           :

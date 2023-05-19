@@ -54,6 +54,7 @@ const Report = () => {
     if (updates.temporalSlotNumber) {bookingDetails.temporalSlotNumber = updates.temporalSlotNumber};
     if (updates.startHour) { bookingDetails.startHour = updates.startHour };
     if (updates.serviceDay) {bookingDetails.serviceDay = updates.serviceDay};
+    bookingDetails.photos = [];
 
     setProgress({ value: 'CONFIRMING ...', disabled: true });
     axios.put(`${Apis.bookingApis.update}${params.id}`, bookingDetails)

@@ -32,6 +32,28 @@ export default function BookingForm(props) {
                         </MenuItem>
                         <MenuItem value={'Car'}>Car</MenuItem>
                         <MenuItem value={'Motorcycle'}>Motorcycle</MenuItem>
+                        <MenuItem value={'Bicycle'}>Bicycle</MenuItem>
+                        <MenuItem value={'Truck'}>Truck</MenuItem>
+                        <MenuItem value={'Bus'}>Bus</MenuItem>
+                        <MenuItem value={'SUV'}>SUV</MenuItem>
+                        <MenuItem value={'Van'}>Van</MenuItem>
+                        <MenuItem value={'Convertible'}>Convertible</MenuItem>
+                        <MenuItem value={'Sedan'}>Sedan</MenuItem>
+                        <MenuItem value={'Hatchback'}>Hatchback</MenuItem>
+                        <MenuItem value={'Coupe'}>Coupe</MenuItem>
+                        <MenuItem value={'Minivan'}>Minivan</MenuItem>
+                        <MenuItem value={'Pickup Truck'}>Pickup Truck</MenuItem>
+                        <MenuItem value={'RV (Recreational Vehicle)'}>RV (Recreational Vehicle)</MenuItem>
+                        <MenuItem value={'Trailer'}>Trailer</MenuItem>
+                        <MenuItem value={'Electric Vehicle (EV)'}>Electric Vehicle (EV)</MenuItem>
+                        <MenuItem value={'Hybrid Vehicle'}>Hybrid Vehicle</MenuItem>
+                        <MenuItem value={'Sports Car'}>Sports Car</MenuItem>
+                        <MenuItem value={'Limousine'}>Limousine</MenuItem>
+                        <MenuItem value={'Ambulance'}>Ambulance</MenuItem>
+                        <MenuItem value={'Taxi'}>Taxi</MenuItem>
+                        <MenuItem value={'Motorhome'}>Motorhome</MenuItem>
+                        <MenuItem value={'Tractor'}>Tractor</MenuItem>
+                        <MenuItem value={'Other'}>Other</MenuItem>
                     </Select>
                 </FormControl>
                 
@@ -45,6 +67,25 @@ export default function BookingForm(props) {
                         </MenuItem>
                         <MenuItem value={'Oil Change'}>Oil Change</MenuItem>
                         <MenuItem value={'Tire Rotation'}>Tire Rotation</MenuItem>
+                        <MenuItem value={'Brake Inspection'}>Brake Inspection</MenuItem>
+                        <MenuItem value={'Engine Tune-up'}>Engine Tune-up</MenuItem>
+                        <MenuItem value={'Wheel Alignment'}>Wheel Alignment</MenuItem>
+                        <MenuItem value={'Battery Replacement'}>Battery Replacement</MenuItem>
+                        <MenuItem value={'Diagnostic Services'}>Diagnostic Services</MenuItem>
+                        <MenuItem value={'Transmission Service'}>Transmission Service</MenuItem>
+                        <MenuItem value={'Air Conditioning Repair'}>Air Conditioning Repair</MenuItem>
+                        <MenuItem value={'Exhaust System Repair'}>Exhaust System Repair</MenuItem>
+                        <MenuItem value={'Electrical System Repair'}>Electrical System Repair</MenuItem>
+                        <MenuItem value={'Suspension Repair'}>Suspension Repair</MenuItem>
+                        <MenuItem value={'Radiator Flush'}>Radiator Flush</MenuItem>
+                        <MenuItem value={'Fuel System Cleaning'}>Fuel System Cleaning</MenuItem>
+                        <MenuItem value={'Headlight Restoration'}>Headlight Restoration</MenuItem>
+                        <MenuItem value={'Windshield Replacement'}>Windshield Replacement</MenuItem>
+                        <MenuItem value={'Paintless Dent Repair'}>Paintless Dent Repair</MenuItem>
+                        <MenuItem value={'Interior Detailing'}>Interior Detailing</MenuItem>
+                        <MenuItem value={'Car Wash and Wax'}>Car Wash and Wax</MenuItem>
+                        <MenuItem value={'Towing Service'}>Towing Service</MenuItem>
+                        <MenuItem value={'Other'}>Other</MenuItem>
                     </Select>
                 </FormControl>
                 

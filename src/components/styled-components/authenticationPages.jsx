@@ -152,11 +152,11 @@ export const AuthFormContainer = styled.form`
             flex-direction: row;
 
             input {
-                width: 90%;
+                width: 100%;
             }
 
             div {
-                width: 10%;
+                width: 100%;
             }
         }
     }
