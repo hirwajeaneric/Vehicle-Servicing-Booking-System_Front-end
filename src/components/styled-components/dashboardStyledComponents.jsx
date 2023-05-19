@@ -543,7 +543,7 @@ export const DataColumn = styled.div`
 
     input, select {
         width: 100%;
-        padding: 3px;
+        padding: 5px 3px;
         border: 1px solid gray;
         border-radius: 4px;
     }
